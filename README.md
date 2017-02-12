@@ -1,3 +1,44 @@
+Whiteout Mail - revived
+=======================
+
+An attempt to revive Whiteout Mail after it was abandoned for over two years.
+
+### Requirements
+
+* Node.js
+
+* Ruby
+
+* Sass installed in Ruby (via gem install sass)
+
+
+### Build
+
+Get npm dependencies:
+
+    npm install
+
+Next would be grunt -> grunt-assemble fails with "error: handlebars does not support render"
+
+Workaround (sse https://github.com/assemble/grunt-assemble/issues/31):
+
+    cd node_modules/assemble-handlebars ; npm install
+
+Now, we can do:
+
+    grunt
+
+Now, start server for development (without https)
+
+    node start --dev
+
+and call web-page:
+
+    http://localhost:8889
+
+
+
+
 [ABANDONED] Whiteout Mail [![Build Status](https://travis-ci.org/whiteout-io/mail.svg?branch=master)](https://travis-ci.org/whiteout-io/mail)
 ==========
 
