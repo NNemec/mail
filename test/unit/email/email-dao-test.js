@@ -1,8 +1,8 @@
 'use strict';
 
 var mailreader = require('mailreader'),
-    ImapClient = require('imap-client'),
-    PgpMailer = require('pgpmailer'),
+    ImapClient = require('wo-imap-client'),
+    PgpMailer = require('wo-pgpmailer'),
     PgpBuilder = require('pgpbuilder'),
     cfg = require('../../../src/js/app-config').config,
     EmailDAO = require('../../../src/js/email/email'),

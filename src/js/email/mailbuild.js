@@ -1,6 +1,6 @@
 'use strict';
 
-var Mailbuild = require('mailbuild');
+var Mailbuild = require('emailjs-mime-builder');
 
 var ngModule = angular.module('woEmail');
 ngModule.factory('mailbuild', function() {

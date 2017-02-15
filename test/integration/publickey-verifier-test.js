@@ -1,7 +1,7 @@
 'use strict';
 
-var ImapClient = require('imap-client'),
-    BrowserCrow = require('browsercrow'),
+var ImapClient = require('wo-imap-client'),
+    BrowserCrow = require('wo-browsercrow'),
     mailreader = require('mailreader'),
     config = require('../../src/js/app-config'),
     str = config.string;
