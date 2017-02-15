@@ -7,7 +7,7 @@ var ngModule = angular.module('woServices');
 ngModule.service('publickeyVerifier', PublickeyVerifier);
 module.exports = PublickeyVerifier;
 
-var ImapClient = require('imap-client');
+var ImapClient = require('wo-imap-client');
 
 function PublickeyVerifier(auth, appConfig, mailreader, keychain) {
     this._appConfig = appConfig;

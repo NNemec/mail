@@ -1,13 +1,13 @@
 'use strict';
 
-var ImapClient = require('imap-client'),
-    BrowserCrow = require('browsercrow'),
-    BrowserSMTP = require('browsersmtp'),
-    SmtpClient = require('wo-smtpclient'),
+var ImapClient = require('wo-imap-client'),
+    BrowserCrow = require('wo-browsercrow'),
+    BrowserSMTP = require('wo-browsersmtp'),
+    SmtpClient = require('emailjs-smtp-client'),
     LawnchairDAO = require('../../src/js/service/lawnchair'),
     DeviceStorageDAO = require('../../src/js/service/devicestorage'),
     mailreader = require('mailreader'),
-    PgpMailer = require('pgpmailer'),
+    PgpMailer = require('wo-pgpmailer'),
     config = require('../../src/js/app-config').config,
     str = require('../../src/js/app-config').string;
 

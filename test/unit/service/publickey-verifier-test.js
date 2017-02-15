@@ -2,7 +2,7 @@
 
 var mailreader = require('mailreader'),
     KeychainDAO = require('../../../src/js/service/keychain'),
-    ImapClient = require('imap-client'),
+    ImapClient = require('wo-imap-client'),
     PublickeyVerifier = require('../../../src/js/service/publickey-verifier'),
     appConfig = require('../../../src/js/app-config');
 

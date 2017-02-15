@@ -24,8 +24,8 @@
   "devDependencies": {
     "assemble": "~0.23.0",
     "axe-logger": "~0.0.2",
-    "browsercrow": "git://github.com/NNemec/wo-browsercrow.git",
-    "browsersmtp": "git://github.com/NNemec/wo-browsersmtp.git",
+    "wo-browsercrow": "git://github.com/NNemec/wo-browsercrow.git",
+    "wo-browsersmtp": "git://github.com/NNemec/wo-browsersmtp.git",
     "chai": "~3.5.0",
     "crypto-lib": "~0.2.1",
     "dompurify": "~0.8.5",
@@ -56,7 +56,7 @@
     "grunt-svgstore": "~1.0.0",
     "handlebars-helper-compose": "~0.2.12",
     "iframe-resizer": "^3.5.8",
-    "imap-client": "git://github.com/NNemec/wo-imap-client.git",
+    "wo-imap-client": "git://github.com/NNemec/wo-imap-client.git",
     "insert-module-globals": "7.0.1",
     "jquery": "~3.1.1",
     "mailreader": "~1.0.0",
@@ -64,7 +64,7 @@
     "ng-infinite-scroll": "~1.3.0",
     "openpgp": "^2.3.6",
     "pgpbuilder": "~1.0.0",
-    "pgpmailer": "git://github.com/NNemec/wo-pgpmailer.git",
+    "wo-pgpmailer": "git://github.com/NNemec/wo-pgpmailer.git",
     "sinon": "~1.17.7",
     "sw-precache": "^4.3.0",
     "time-grunt": "^1.0.0"

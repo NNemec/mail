@@ -4,9 +4,9 @@ var ngModule = angular.module('woUtil');
 ngModule.service('connectionDoctor', ConnectionDoctor);
 module.exports = ConnectionDoctor;
 
-var TCPSocket = require('tcp-socket'),
-    ImapClient = require('imap-client'),
-    SmtpClient = require('wo-smtpclient');
+var TCPSocket = require('emailjs-tcp-socket'),
+    ImapClient = require('wo-imap-client'),
+    SmtpClient = require('emailjs-smtp-client');
 
 /**
  * The connection doctor can check your connection. In essence, it reconstructs what happens when

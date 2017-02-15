@@ -7,9 +7,9 @@ var Auth = require('../../../src/js/service/auth'),
     axe = require('axe-logger'),
     appConfig = require('../../../src/js/app-config'),
     util = require('crypto-lib').util,
-    Mailbuild = require('mailbuild'),
+    Mailbuild = require('emailjs-mime-builder'),
     mailreader = require('mailreader'),
-    ImapClient = require('imap-client');
+    ImapClient = require('wo-imap-client');
 
 describe('Private Key DAO unit tests', function() {
 

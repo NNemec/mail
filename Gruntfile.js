@@ -173,7 +173,7 @@ module.exports = function(grunt) {
             },
             compressionWorker: {
                 files: {
-                    'dist/js/browserbox-compression-worker.browserified.js': ['node_modules/imap-client/node_modules/browserbox/src/browserbox-compression-worker.js']
+                    'dist/js/browserbox-compression-worker.browserified.js': ['node_modules/wo-imap-client/node_modules/browserbox/src/browserbox-compression-worker.js']
                 },
                 options: browserifyOpt
             },
