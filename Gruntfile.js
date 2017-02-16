@@ -384,6 +384,18 @@ module.exports = function(grunt) {
             }
         },
 
+        babel: {
+            options: {
+                sourceMap: true,
+                presets: ['es2015']
+            },
+            app: {
+                files: {
+                    'dist/js/app.min.js': 'dist/js/app.min.js'
+                }
+            }
+        },
+
         uglify: {
             app: {
                 files: {
@@ -737,7 +749,7 @@ module.exports = function(grunt) {
 
     // Build tasks
     grunt.registerTask('dist-css', ['sass:dist', 'autoprefixer:dist', 'csso:dist']);
-    grunt.registerTask('dist-js', ['browserify', 'exorcise', 'ngtemplates', 'concat', 'uglify']);
+    grunt.registerTask('dist-js', ['browserify', 'exorcise', 'ngtemplates', 'concat', 'babel', 'uglify']);
     grunt.registerTask('dist-js-app', [
         'browserify:app',
         'browserify:pbkdf2Worker',
@@ -746,6 +758,8 @@ module.exports = function(grunt) {
         'concat:app',
         'concat:readSandbox',
         'concat:pbkdf2Worker',
+        'babel:app',
+        'uglify:app',
         'offline-cache'
     ]);
     grunt.registerTask('dist-js-unitTest', [
