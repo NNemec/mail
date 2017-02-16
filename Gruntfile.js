@@ -247,6 +247,16 @@ module.exports = function(grunt) {
                     'dist/js/app.browserified.js.map': ['dist/js/app.browserified.js'],
                 }
             },
+            pbkdf2Worker: {
+                files: {
+                    'dist/js/pbkdf2-worker.min.js': ['dist/js/pbkdf2-worker.browserified.js'],
+                }
+            },
+            mailreaderWorker: {
+                files: {
+                    'dist/js/mailreader-parser-worker.min.js': ['dist/js/mailreader-parser-worker.browserified.js'],
+                }
+            },
             unitTest: {
                 files: {
                     'test/unit/index.browserified.js.map': ['test/unit/index.browserified.js'],
@@ -315,11 +325,17 @@ module.exports = function(grunt) {
             },
             pbkdf2Worker: {
                 src: ['dist/js/pbkdf2-worker.browserified.js'],
-                dest: 'dist/js/pbkdf2-worker.min.js'
+                dest: 'dist/js/pbkdf2-worker.min.js',
+                options: {
+                    sourceMapName: 'dist/js/pbkdf2-worker.min.js'
+                }
             },
             mailreaderWorker: {
                 src: ['dist/js/mailreader-parser-worker.browserified.js'],
-                dest: 'dist/js/mailreader-parser-worker.min.js'
+                dest: 'dist/js/mailreader-parser-worker.min.js',
+                options: {
+                    sourceMapName: 'dist/js/mailreader-parser-worker.min.js'
+                }
             },
             tlsWorker: {
                 src: ['dist/js/tcp-socket-tls-worker.browserified.js'],
