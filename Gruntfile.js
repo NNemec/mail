@@ -739,7 +739,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-svgstore');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-angular-templates');
-    grunt.loadNpmTasks('assemble');
+    grunt.loadNpmTasks('grunt-assemble');
 
     // Build tasks
     grunt.registerTask('dist-css', ['sass:dist', 'autoprefixer:dist', 'csso:dist']);
