@@ -18,13 +18,7 @@ Get npm dependencies:
 
     npm install
 
-Next would be grunt -> grunt-assemble fails with "error: handlebars does not support render"
-
-Workaround (sse https://github.com/assemble/grunt-assemble/issues/31):
-
-    cd node_modules/assemble-handlebars ; npm install
-
-Now, we can do:
+Build:
 
     grunt
 
