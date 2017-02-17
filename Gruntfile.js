@@ -731,7 +731,7 @@ module.exports = function(grunt) {
                 stripPrefix: path.join(rootDir, path.sep)
             };
 
-            swPrecache(config, callback);
+            swPrecache.generate(config, callback);
         }
     });
 
