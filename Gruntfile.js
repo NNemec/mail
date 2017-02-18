@@ -313,7 +313,7 @@ module.exports = function(grunt) {
                 ],
                 dest: 'dist/js/app.min.js',
                 options: {
-                    sourceMapName: 'dist/js/app.js.map'
+                    sourceMapName: 'dist/js/app.min.js.map'
                 }
             },
             readSandbox: {
@@ -392,7 +392,7 @@ module.exports = function(grunt) {
                 options: {
                     mangle: false,
                     sourceMap: true,
-                    sourceMapIn: 'dist/js/app.js.map',
+                    sourceMapIn: 'dist/js/app.min.js.map',
                     sourceMapIncludeSources: true,
                     sourceMapName: 'dist/js/app.min.js.map'
                 }
