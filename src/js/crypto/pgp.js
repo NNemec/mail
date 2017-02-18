@@ -13,7 +13,7 @@ var util = openpgp.util,
 function PGP() {
     openpgp.config.commentstring = config.pgpComment;
     openpgp.config.prefer_hash_algorithm = openpgp.enums.hash.sha256;
-    openpgp.initWorker(config.workerPath + '/openpgp.worker.min.js');
+    openpgp.initWorker({ path: config.workerPath + '/openpgp.worker.min.js'});
 }
 
 /**
