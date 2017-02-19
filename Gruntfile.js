@@ -168,7 +168,7 @@ module.exports = function(grunt) {
             },
             tlsWorker: {
                 files: {
-                    'dist/js/tcp-socket-tls-worker.browserified.js': ['node_modules/tcp-socket/src/tcp-socket-tls-worker.js']
+                    'dist/js/tcp-socket-tls-worker.browserified.js': ['node_modules/emailjs-tcp-socket/src/emailjs-tcp-socket-tls-worker.js']
                 },
                 options: browserifyOpt
             },
@@ -258,6 +258,11 @@ module.exports = function(grunt) {
                     'dist/js/mailreader-parser-worker.min.js': ['dist/js/mailreader-parser-worker.browserified.js'],
                 }
             },
+            tlsWorker: {
+                files: {
+                    'dist/js/tcp-socket-tls-worker.min.js': ['dist/js/tcp-socket-tls-worker.browserified.js'],
+                }
+            },
             unitTest: {
                 files: {
                     'test/unit/index.browserified.js.map': ['test/unit/index.browserified.js'],
@@ -340,7 +345,10 @@ module.exports = function(grunt) {
             },
             tlsWorker: {
                 src: ['dist/js/tcp-socket-tls-worker.browserified.js'],
-                dest: 'dist/js/tcp-socket-tls-worker.min.js'
+                dest: 'dist/js/tcp-socket-tls-worker.min.js',
+                options: {
+                    sourceMapName: 'dist/js/tcp-socket-tls-worker.min.js'
+                }
             },
             compressionWorker: {
                 src: ['dist/js/browserbox-compression-worker.browserified.js'],
