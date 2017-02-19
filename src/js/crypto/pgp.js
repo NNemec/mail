@@ -24,7 +24,7 @@ PGP.prototype.generateKeys = function(options) {
     return new Promise(function(resolve) {
         var userId, name, passphrase;
 
-        if (!util.emailRegEx.test(options.emailAddress) || !options.keySize) {
+        if (!util.isEmailAddress(options.emailAddress) || !options.keySize) {
             throw new Error('Crypto init failed. Not all options set!');
         }
 
@@ -39,10 +39,10 @@ PGP.prototype.generateKeys = function(options) {
         });
 
     }).then(function(res) {
-        return openpgp.generateKeyPair({
+        return openpgp.generateKey({
             keyType: 1, // (keytype 1=RSA)
             numBits: options.keySize,
-            userId: res.userId,
+            userIds: [ res.userId ],
             passphrase: res.passphrase
         });
     }).then(function(keys) {
