@@ -18,17 +18,17 @@
 
 var UPDATE_MSG = 'A new version of Whiteout Mail is available. Restart the app to update?';
 
-if ('serviceWorker' in navigator &&
+if ('applicationCache' in window) {
+    // If application cache is supported, it will be used (since it is configured in <html> tag)
+    // so we must set it up here
+    useAppCache();
+} else if ('serviceWorker' in navigator &&
     // See http://www.chromium.org/Home/chromium-security/prefer-secure-origins-for-powerful-new-features
     (window.location.protocol === 'https:' ||
         window.location.hostname === 'localhost' ||
         window.location.hostname.indexOf('127.') === 0)) {
     // prefer new service worker cache
     useServiceWorker();
-
-} else if ('applicationCache' in window) {
-    // Fall back to app cache
-    useAppCache();
 }
 
 function useServiceWorker() {
