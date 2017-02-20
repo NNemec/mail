@@ -4,6 +4,8 @@
   "description": "Mail App with integrated OpenPGP encryption.",
   "author": "Whiteout Networks",
   "homepage": "https://whiteout.io",
+  "repository": "NNemec/whiteout-mail",
+  "license": "MIT",
   "engines": {
     "node": ">=0.10"
   },
