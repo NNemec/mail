@@ -303,13 +303,12 @@ PGP.prototype.encrypt = function(plaintext, publicKeysArmored) {
         resolve(publicKeys);
 
     }).then(function(publicKeys) {
-        if (publicKeys) {
-            // encrypt and sign the plaintext
-            return openpgp.signAndEncryptMessage(publicKeys, self._privateKey, plaintext);
-        } else {
+        if (!publicKeys) {
             // if no public keys are available encrypt for myself
-            return openpgp.signAndEncryptMessage([self._publicKey], self._privateKey, plaintext);
+            publicKeys = [self._publicKey];
         }
+        // encrypt and sign the plaintext
+        return openpgp.encrypt({publicKeys: publicKeys, privateKeys: [self._privateKey], data: plaintext});
     });
 };
 
@@ -348,8 +347,8 @@ PGP.prototype.decrypt = function(ciphertext, publicKeyArmored) {
         });
 
     }).then(function(res) {
-        // decrypt and verify pgp message
-        return openpgp.decryptAndVerifyMessage(self._privateKey, res.publicKeys, res.message);
+        // decrypt
+        return openpgp.decrypt({privateKeys: [self._privateKey], publicKeys: res.publicKeys, message: res.message});
     }).then(function(decrypted) {
         // return decrypted plaintext
         return {
@@ -394,7 +393,7 @@ PGP.prototype.verifyClearSignedMessage = function(clearSignedText, publicKeyArmo
         });
 
     }).then(function(res) {
-        return openpgp.verifyClearSignedMessage(res.publicKeys, res.message);
+        return openpgp.verify(res);
     }).then(function(result) {
         return checkSignatureValidity(result.signatures);
     });
