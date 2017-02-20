@@ -51,6 +51,10 @@ PublickeyVerifier.prototype.persistKeypair = function() {
 };
 
 PublickeyVerifier.prototype.verify = function() {
+    // https://keys.whiteout.io is offline
+    // so we have to deactivate the keyserver query at this point :-(
+    return Promise.resolve();
+
     var self = this,
         verificationSuccessful = false;
 

@@ -12,6 +12,10 @@ function PublicKey(publicKeyRestDao) {
  * Verify the public key behind the given uuid
  */
 PublicKey.prototype.verify = function(uuid) {
+    // https://keys.whiteout.io is offline
+    // so we have to deactivate the keyserver query at this point :-(
+    return Promise.resolve();
+
     return this._restDao.get({
         uri: '/verify/' + uuid,
         type: 'text'
@@ -29,6 +33,10 @@ PublicKey.prototype.verify = function(uuid) {
  * Find the user's corresponding public key
  */
 PublicKey.prototype.get = function(keyId) {
+    // https://keys.whiteout.io is offline
+    // so we have to deactivate the keyserver query at this point :-(
+    return Promise.resolve();
+
     return this._restDao.get({
         uri: '/publickey/key/' + keyId
     }).catch(function(err) {
@@ -44,6 +52,10 @@ PublicKey.prototype.get = function(keyId) {
  * Find the user's corresponding public key by email
  */
 PublicKey.prototype.getByUserId = function(userId) {
+    // https://keys.whiteout.io is offline
+    // so we have to deactivate the keyserver query at this point :-(
+    return Promise.resolve();
+
     return this._restDao.get({
         uri: '/publickey/user/' + userId
     }).then(function(keys) {
@@ -72,6 +84,10 @@ PublicKey.prototype.getByUserId = function(userId) {
  * Persist the user's publc key
  */
 PublicKey.prototype.put = function(pubkey) {
+    // https://keys.whiteout.io is offline
+    // so we have to deactivate the keyserver query at this point :-(
+    return Promise.resolve();
+
     var uri = '/publickey/user/' + pubkey.userId + '/key/' + pubkey._id;
     return this._restDao.put(pubkey, uri);
 };
@@ -80,6 +96,10 @@ PublicKey.prototype.put = function(pubkey) {
  * Delete the public key from the cloud storage service
  */
 PublicKey.prototype.remove = function(keyId) {
+    // https://keys.whiteout.io is offline
+    // so we have to deactivate the keyserver query at this point :-(
+    return Promise.resolve();
+
     var uri = '/publickey/key/' + keyId;
     return this._restDao.remove(uri);
 };
