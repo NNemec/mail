@@ -22,7 +22,7 @@ ngModule.directive('listScroll', function($timeout) {
                     inViewport = false,
                     listItem, message,
                     isPartiallyVisibleTop, isPartiallyVisibleBottom, isVisible,
-                    displayMessages = scope[model],
+                    displayMessages = scope[model] || [],
                     visible = [],
                     prefetchLowerBound = displayMessages.length, // lowest index where we need to start prefetching
                     prefetchUpperBound = 0; // highest index where we need to start prefetching
