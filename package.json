@@ -60,7 +60,7 @@
     "mailreader": "~1.0.0",
     "mocha": "^3.2.0",
     "ng-infinite-scroll": "~1.3.0",
-    "openpgp": "^2.3.6",
+    "openpgp": "^1.6.2",
     "pgpbuilder": "~1.0.0",
     "sinon": "~1.17.7",
     "sw-precache": "^4.3.0",
