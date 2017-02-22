@@ -395,7 +395,7 @@ module.exports = function(grunt) {
         uglify: {
             app: {
                 files: {
-                    'dist/js/app.min.js': ['dist/js/app.min.js']
+//                    'dist/js/app.min.js': ['dist/js/app.min.js']   --- breaks on ES6 features in emailjs-imap-client
                 },
                 options: {
                     mangle: false,
