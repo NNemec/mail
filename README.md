@@ -7,10 +7,6 @@ An attempt to revive Whiteout Mail after it was abandoned for over two years.
 
 * Node.js
 
-* Ruby
-
-* Sass installed in Ruby (via gem install sass)
-
 
 ### Build
 

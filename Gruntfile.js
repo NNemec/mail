@@ -93,6 +93,9 @@ module.exports = function(grunt) {
         // Stylesheets
 
         sass: {
+            options: {
+                sourceMap: true
+            },
             dist: {
                 files: {
                     'src/css/read-sandbox.css': 'src/sass/read-sandbox.scss',
