@@ -1,7 +1,7 @@
 /*
 * Scut, a collection of Sass utilities
 * to ease and improve our implementations of common style-code patterns.
-* v1.0.1
+* v1.4.0
 * Docs at http://davidtheclark.github.io/scut
 */
 
@@ -279,13 +279,14 @@ $scut-rem-base: 16 !default;
   $ratio: 1.3
 ) {
 
-  @media (-o-min-device-pixel-ratio: #{$ratio}/1),
-         (-webkit-min-device-pixel-ratio: #{$ratio}),
-         (min-resolution: #{round(96 * $ratio)}dpi) {
+  @media (-o-min-device-pixel-ratio: ($ratio / 1)),
+         (-webkit-min-device-pixel-ratio: $ratio),
+         (min-resolution: (round(96 * $ratio) * 1dpi)) {
     @content;
   }
 
 }
+
 @mixin scut-hide-visually {
 
   border: 0;
@@ -307,12 +308,14 @@ $scut-rem-base: 16 !default;
   text-indent: 102%;
   white-space: nowrap;
   overflow: hidden;
+  padding: 0;
 
 }
 
 %scut-image-replace {
   @include scut-image-replace;
 }
+
 // Depends on scut-rem and scut-strip-unit
 
 @mixin scut-rem-fallback (
@@ -334,11 +337,9 @@ $scut-rem-base: 16 !default;
 @mixin scut-reset-border-box {
   // Make everything a border-box, because why not?
   html {
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
   *, *:before, *:after {
-    -moz-box-sizing: inherit;
     box-sizing: inherit;
   }
 }
@@ -347,6 +348,9 @@ $scut-rem-base: 16 !default;
   // Antialias!
   body {
     -webkit-font-smoothing: antialiased;
+  }
+  *, *:before, *:after {
+    -webkit-font-smoothing: inherit;
   }
 }
 
@@ -391,9 +395,9 @@ $scut-rem-base: 16 !default;
 @mixin scut-reset-button {
   // Reset default button styles, which are never used.
   button,
-  input[type="button"],
-  input[type="submit"],
-  input[type="reset"] {
+  [type="button"],
+  [type="submit"],
+  [type="reset"] {
     background: transparent;
     border: 0;
     color: inherit;
@@ -1123,6 +1127,7 @@ $scut-rem-base: 16 !default;
 
   $inner: if(length($inner) == 0, ".scut-inner", $inner);
   @each $cell-selector in $inner {
+    $cell-selector: unquote($cell-selector);
     & > #{$cell-selector} {
       display: inline-block;
       vertical-align: middle;
@@ -1151,6 +1156,7 @@ $scut-rem-base: 16 !default;
 
   $inner: if(length($inner) == 0, ".scut-inner", $inner);
   @each $cell-selector in $inner {
+    $cell-selector: unquote($cell-selector);
     & > #{$cell-selector} {
       display: table-cell;
       vertical-align: middle;
@@ -1271,6 +1277,21 @@ $scut-whitesquare: "\25a1";
 $scut-ssquare: "\25aa";
 // small white square
 $scut-swhitesquare: "\25ab";
+
+// general currency
+$scut-currency: "\00a4";
+// cent
+$scut-cent: "\00a2";
+// dollar
+$scut-dollar: "\0024";
+// pound
+$scut-pound: "\00a3";
+// euro
+$scut-euro: "\20ac";
+// yen
+$scut-yen: "\00a5";
+// rupee
+$scut-rupee: "\20B9";
 @function main-src($formats, $file-path, $font-family) {
   // Return the list of `src` values, in order, that
   // a good `@font-face` will need, including only
@@ -1279,6 +1300,10 @@ $scut-swhitesquare: "\25ab";
   @if index($formats, eot) {
     $eot-val: url('#{$file-path}.eot?#iefix') format('embedded-opentype');
     $result: append($result, $eot-val, comma);
+  }
+  @if index($formats, woff2) {
+    $woff2-val: url('#{$file-path}.woff2') format('woff2');
+    $result: append($result, $woff2-val, comma);
   }
   @if index($formats, woff) {
     $woff-val: url('#{$file-path}.woff') format('woff');
@@ -1300,7 +1325,7 @@ $scut-swhitesquare: "\25ab";
   $file-path,
   $weight: normal,
   $style: normal,
-  $formats: eot woff ttf svg
+  $formats: eot woff2 woff ttf svg
 ) {
 
   @if index('italic' 'oblique', $weight) {
@@ -1320,6 +1345,7 @@ $scut-swhitesquare: "\25ab";
   }
 
 }
+
 @mixin scut-hanging-indent (
   $indent: 1em
 ) {
@@ -1408,17 +1434,27 @@ $scut-swhitesquare: "\25ab";
 %scut-link-bb {
   @include scut-link-bb;
 }
+// SCUT LINK UNSTYLED
+// http://davidtheclark.github.io/scut/#link-unstyled
+
+@mixin scut-link-unstyled() {
+
+  text-decoration: none;
+  color: inherit;
+
+}
+
+%scut-link-unstyled {
+  @include scut-link-unstyled();
+}
+
 @mixin scut-reverse-italics (
-  $elements: false
+  $elements: null
 ) {
 
   $element-list: em, cite, i;
-  @each $el in $elements {
-    $element-list: append($element-list, unquote($el), comma)
-  }
-
   font-style: italic;
-  #{$element-list} {
+  #{join($element-list, $elements)} {
     font-style: normal;
   }
 
@@ -1427,6 +1463,7 @@ $scut-swhitesquare: "\25ab";
 %scut-reverse-italics {
   @include scut-reverse-italics;
 }
+
 @mixin scut-side-lined (
   $height: 1px,
   $space: 0.5em,
