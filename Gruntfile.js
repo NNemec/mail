@@ -2,7 +2,9 @@ module.exports = function(grunt) {
     'use strict';
 
     require('time-grunt')(grunt);
-    require('load-grunt-tasks')(grunt);
+    require('jit-grunt')(grunt, {
+        ngtemplates: "grunt-angular-templates",
+    });
 
     var version = grunt.option('release'),
         zipName = (version) ? version : 'DEV';
