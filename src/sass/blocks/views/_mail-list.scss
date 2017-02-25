@@ -327,7 +327,7 @@
     }
 
     @include respond-to(lg) {
-        $cell-padding-vertical:         10px;
+        $cell-padding-vertical:         3px;
         $cell-padding-horizontal:       10px;
 
         display: table-row;
@@ -340,7 +340,7 @@
         &__flags {
             display: table-cell;
             box-sizing: content-box;
-            border-bottom: 1px solid $color-border-light;
+            border-bottom: 0px;
             padding: $cell-padding-vertical $cell-padding-horizontal;
             list-style: none;
             width: 8em;
@@ -399,7 +399,7 @@
         &__attachment {
             display: table-cell;
             box-sizing: content-box;
-            border-bottom: 1px solid $color-border-light;
+            border-bottom: 0px;
             padding: $cell-padding-vertical $cell-padding-horizontal;
             width: 1em;
             & > svg {
@@ -417,14 +417,14 @@
         &__name {
             @include scut-truncate;
             display: table-cell;
-            border-bottom: 1px solid $color-border-light;
+            border-bottom: 0px;
             padding: $cell-padding-vertical $cell-padding-horizontal;
             width: 16em;
         }
         &__subject {
             @include scut-truncate;
             display: table-cell;
-            border-bottom: 1px solid $color-border-light;
+            border-bottom: 0px;
             padding: $cell-padding-vertical $cell-padding-horizontal;
             & > strong {
                 font-weight: normal;
@@ -440,7 +440,7 @@
         }
         &__time {
             display: table-cell;
-            border-bottom: 1px solid $color-border-light;
+            border-bottom: 0px;
             padding: $cell-padding-vertical $cell-padding-horizontal;
             width: 8em; // make room for time
             text-align: right;
