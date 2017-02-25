@@ -753,6 +753,7 @@ module.exports = function(grunt) {
         'browserify:app',
         'browserify:pbkdf2Worker',
         'exorcise:app',
+        'exorcise:pbkdf2Worker',
         'ngtemplates',
         'concat:app',
         'concat:readSandbox',
