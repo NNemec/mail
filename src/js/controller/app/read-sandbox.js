@@ -9,7 +9,7 @@ DOMPurify.addHook('afterSanitizeAttributes', function(node) {
 });
 
 // set listener for event from main window
-window.onmessage = function(e) {
+window.addEventListener('message', function(e) {
     var html = '';
 
     if (e.data.html) {
@@ -18,6 +18,9 @@ window.onmessage = function(e) {
     } else if (e.data.text) {
         // diplay text mail body by with colored conversation nodes
         html = renderNodes(parseConversation(e.data.text));
+    } else {
+        // message was not for us
+        return;
     }
 
     // sanitize HTML content: https://github.com/cure53/DOMPurify
@@ -32,7 +35,7 @@ window.onmessage = function(e) {
     }
 
     attachClickHandlers();
-};
+});
 
 /**
  * Send a message to the main window when email address is clicked
