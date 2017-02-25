@@ -70,6 +70,7 @@ ngModule.directive('frameLoad', function($window) {
             enablePublicMethods: true,
             sizeWidth: true,
             resizedCallback: scaleToFit,
+            checkOrigin: false,
             messageCallback: function(e) {
                 if (e.message.type === 'email') {
                     scope.state.writer.write({
