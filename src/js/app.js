@@ -9,6 +9,8 @@ require('./offline-cache');
 
 var axe = require('axe-logger');
 
+axe.logLevel = axe.INFO;
+
 // include angular modules
 require('./app-config');
 require('./directive');
