@@ -255,17 +255,17 @@ module.exports = function(grunt) {
             },
             pbkdf2Worker: {
                 files: {
-                    'dist/js/pbkdf2-worker.min.js': ['dist/js/pbkdf2-worker.browserified.js'],
+                    'dist/js/pbkdf2-worker.browserified.js.map': ['dist/js/pbkdf2-worker.browserified.js'],
                 }
             },
             mailreaderWorker: {
                 files: {
-                    'dist/js/mailreader-parser-worker.min.js': ['dist/js/mailreader-parser-worker.browserified.js'],
+                    'dist/js/mailreader-parser-worker.browserified.js.map': ['dist/js/mailreader-parser-worker.browserified.js'],
                 }
             },
             tlsWorker: {
                 files: {
-                    'dist/js/tcp-socket-tls-worker.min.js': ['dist/js/tcp-socket-tls-worker.browserified.js'],
+                    'dist/js/tcp-socket-tls-worker.browserified.js.map': ['dist/js/tcp-socket-tls-worker.browserified.js'],
                 }
             },
             unitTest: {
@@ -338,21 +338,21 @@ module.exports = function(grunt) {
                 src: ['dist/js/pbkdf2-worker.browserified.js'],
                 dest: 'dist/js/pbkdf2-worker.min.js',
                 options: {
-                    sourceMapName: 'dist/js/pbkdf2-worker.min.js'
+                    sourceMapName: 'dist/js/pbkdf2-worker.min.js.map'
                 }
             },
             mailreaderWorker: {
                 src: ['dist/js/mailreader-parser-worker.browserified.js'],
                 dest: 'dist/js/mailreader-parser-worker.min.js',
                 options: {
-                    sourceMapName: 'dist/js/mailreader-parser-worker.min.js'
+                    sourceMapName: 'dist/js/mailreader-parser-worker.min.js.map'
                 }
             },
             tlsWorker: {
                 src: ['dist/js/tcp-socket-tls-worker.browserified.js'],
                 dest: 'dist/js/tcp-socket-tls-worker.min.js',
                 options: {
-                    sourceMapName: 'dist/js/tcp-socket-tls-worker.min.js'
+                    sourceMapName: 'dist/js/tcp-socket-tls-worker.min.js.map'
                 }
             },
             compressionWorker: {
@@ -422,6 +422,10 @@ module.exports = function(grunt) {
             pbkdf2Worker: {
                 files: {
                     'dist/js/pbkdf2-worker.min.js': ['dist/js/pbkdf2-worker.min.js']
+                },
+                options: {
+                    sourceMap: true,
+                    sourceMapName: 'dist/js/pbkdf2-worker.min.js.map'
                 }
             },
             mailreaderWorker: {
