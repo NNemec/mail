@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            dist: ['dist', 'compile', 'test/lib', 'test/integration/src'],
+            dist: ['dist', 'build', 'test/lib', 'test/integration/src'],
             release: ['dist/**/*.browserified.js', 'dist/**/*.js.map', 'dist/js/app.templates.js']
         },
 
@@ -100,13 +100,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'compile/css/read-sandbox.css': 'src/sass/read-sandbox.scss',
-                    'compile/css/all.css': 'src/sass/all.scss'
+                    'build/css/read-sandbox.css': 'src/sass/read-sandbox.scss',
+                    'build/css/all.css': 'src/sass/all.scss'
                 }
             },
             styleguide: {
                 files: {
-                    'compile/css/styleguide.css': 'src/sass/styleguide.scss'
+                    'build/css/styleguide.css': 'src/sass/styleguide.scss'
                 }
             }
         },
@@ -116,13 +116,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'compile/css/read-sandbox.css': 'compile/css/read-sandbox.css',
-                    'compile/css/all.css': 'compile/css/all.css'
+                    'build/css/read-sandbox.css': 'build/css/read-sandbox.css',
+                    'build/css/all.css': 'build/css/all.css'
                 }
             },
             styleguide: {
                 files: {
-                    'compile/css/styleguide.css': 'compile/css/styleguide.css'
+                    'build/css/styleguide.css': 'build/css/styleguide.css'
                 }
             }
         },
@@ -132,13 +132,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/css/read-sandbox.min.css': 'compile/css/read-sandbox.css',
-                    'dist/css/all.min.css': 'compile/css/all.css'
+                    'dist/css/read-sandbox.min.css': 'build/css/read-sandbox.css',
+                    'dist/css/all.min.css': 'build/css/all.css'
                 }
             },
             styleguide: {
                 files: {
-                    'dist/styleguide/css/styleguide.min.css': 'compile/css/styleguide.css'
+                    'dist/styleguide/css/styleguide.min.css': 'build/css/styleguide.css'
                 }
             }
         },
@@ -486,7 +486,7 @@ module.exports = function(grunt) {
                     expand: true,
                     src: ['img/icons/*.svg', '!img/icons/all.svg'],
                     cwd: 'src/',
-                    dest: 'compile/'
+                    dest: 'build/'
                 }]
             }
         },
@@ -501,7 +501,7 @@ module.exports = function(grunt) {
             },
             icons: {
                 files: {
-                    'src/img/icons/all.svg': ['compile/img/icons/*.svg'],
+                    'src/img/icons/all.svg': ['build/img/icons/*.svg'],
                 }
             }
         },
