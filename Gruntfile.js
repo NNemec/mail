@@ -308,7 +308,7 @@ module.exports = function(grunt) {
                     'node_modules/angular/angular.js',
                     'node_modules/angular-route/angular-route.js',
                     'node_modules/angular-animate/angular-animate.js',
-                    'src/lib/ngtagsinput/ng-tags-input.min.js',
+                    'node_modules/ng-tags-input/build/ng-tags-input.min.js',
                     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.min.js',
                     'node_modules/iframe-resizer/js/iframeResizer.min.js',
                     'node_modules/fastclick/lib/fastclick.js',
