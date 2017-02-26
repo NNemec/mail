@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 
         clean: {
             dist: ['dist', 'build', 'test/lib', 'test/integration/src'],
-            release: ['dist/**/*.browserified.js', 'dist/**/*.js.map', 'dist/js/app.templates.js']
+            release: ['dist/**/*.js.map']
         },
 
         copy: {
@@ -155,31 +155,31 @@ module.exports = function(grunt) {
         browserify: {
             app: {
                 files: {
-                    'dist/js/app.browserified.js': ['src/js/app.js']
+                    'build/js/app.browserified.js': ['src/js/app.js']
                 },
                 options: browserifyOpt
             },
             pbkdf2Worker: {
                 files: {
-                    'dist/js/pbkdf2-worker.browserified.js': ['src/js/crypto/pbkdf2-worker.js']
+                    'build/js/pbkdf2-worker.browserified.js': ['src/js/crypto/pbkdf2-worker.js']
                 },
                 options: browserifyOpt
             },
             mailreaderWorker: {
                 files: {
-                    'dist/js/mailreader-parser-worker.browserified.js': ['node_modules/mailreader/src/mailreader-parser-worker-browserify.js']
+                    'build/js/mailreader-parser-worker.browserified.js': ['node_modules/mailreader/src/mailreader-parser-worker-browserify.js']
                 },
                 options: browserifyOpt
             },
             tlsWorker: {
                 files: {
-                    'dist/js/tcp-socket-tls-worker.browserified.js': ['node_modules/emailjs-tcp-socket/src/emailjs-tcp-socket-tls-worker.js']
+                    'build/js/tcp-socket-tls-worker.browserified.js': ['node_modules/emailjs-tcp-socket/src/emailjs-tcp-socket-tls-worker.js']
                 },
                 options: browserifyOpt
             },
             compressionWorker: {
                 files: {
-                    'dist/js/browserbox-compression-worker.browserified.js': ['node_modules/wo-imap-client/node_modules/browserbox/src/browserbox-compression-worker.js']
+                    'build/js/browserbox-compression-worker.browserified.js': ['node_modules/wo-imap-client/node_modules/browserbox/src/browserbox-compression-worker.js']
                 },
                 options: browserifyOpt
             },
@@ -250,22 +250,27 @@ module.exports = function(grunt) {
         exorcise: {
             app: {
                 files: {
-                    'dist/js/app.browserified.js.map': ['dist/js/app.browserified.js'],
+                    'build/js/app.browserified.js.map': ['build/js/app.browserified.js'],
                 }
             },
             pbkdf2Worker: {
                 files: {
-                    'dist/js/pbkdf2-worker.browserified.js.map': ['dist/js/pbkdf2-worker.browserified.js'],
+                    'build/js/pbkdf2-worker.browserified.js.map': ['build/js/pbkdf2-worker.browserified.js'],
                 }
             },
             mailreaderWorker: {
                 files: {
-                    'dist/js/mailreader-parser-worker.browserified.js.map': ['dist/js/mailreader-parser-worker.browserified.js'],
+                    'build/js/mailreader-parser-worker.browserified.js.map': ['build/js/mailreader-parser-worker.browserified.js'],
                 }
             },
             tlsWorker: {
                 files: {
-                    'dist/js/tcp-socket-tls-worker.browserified.js.map': ['dist/js/tcp-socket-tls-worker.browserified.js'],
+                    'build/js/tcp-socket-tls-worker.browserified.js.map': ['build/js/tcp-socket-tls-worker.browserified.js'],
+                }
+            },
+            compressionWorker: {
+                files: {
+                    'build/js/browserbox-compression-worker.browserified.js.map': ['build/js/browserbox-compression-worker.browserified.js'],
                 }
             },
             unitTest: {
@@ -285,7 +290,7 @@ module.exports = function(grunt) {
                 src: [
                     'tpl/**/*.html'
                 ],
-                dest: 'dist/js/app.templates.js',
+                dest: 'build/js/app.templates.js',
                 cwd: 'src/',
                 options: {
                     htmlmin: {
@@ -318,7 +323,7 @@ module.exports = function(grunt) {
                     'src/lib/phonenumber/PhoneNumberMetadata.js',
                     'src/lib/phonenumber/PhoneNumberNormalizer.js',
                     'src/lib/phonenumber/PhoneNumber.js',
-                    'dist/js/app.browserified.js',
+                    'build/js/app.browserified.js',
                     '<%= ngtemplates.mail.dest %>'
                 ],
                 dest: 'dist/js/app.min.js',
@@ -335,29 +340,32 @@ module.exports = function(grunt) {
                 dest: 'dist/js/read-sandbox.min.js'
             },
             pbkdf2Worker: {
-                src: ['dist/js/pbkdf2-worker.browserified.js'],
+                src: ['build/js/pbkdf2-worker.browserified.js'],
                 dest: 'dist/js/pbkdf2-worker.min.js',
                 options: {
                     sourceMapName: 'dist/js/pbkdf2-worker.min.js.map'
                 }
             },
             mailreaderWorker: {
-                src: ['dist/js/mailreader-parser-worker.browserified.js'],
+                src: ['build/js/mailreader-parser-worker.browserified.js'],
                 dest: 'dist/js/mailreader-parser-worker.min.js',
                 options: {
                     sourceMapName: 'dist/js/mailreader-parser-worker.min.js.map'
                 }
             },
             tlsWorker: {
-                src: ['dist/js/tcp-socket-tls-worker.browserified.js'],
+                src: ['build/js/tcp-socket-tls-worker.browserified.js'],
                 dest: 'dist/js/tcp-socket-tls-worker.min.js',
                 options: {
                     sourceMapName: 'dist/js/tcp-socket-tls-worker.min.js.map'
                 }
             },
             compressionWorker: {
-                src: ['dist/js/browserbox-compression-worker.browserified.js'],
-                dest: 'dist/js/browserbox-compression-worker.min.js'
+                src: ['build/js/browserbox-compression-worker.browserified.js'],
+                dest: 'dist/js/browserbox-compression-worker.min.js',
+                options: {
+                    sourceMapName: 'dist/js/browserbox-compression-worker.min.js.map'
+                }
             },
             unitTest: {
                 src: [
@@ -639,20 +647,11 @@ module.exports = function(grunt) {
                         'service-worker.js',
                         'styleguide/css/styleguide.min.css',
                         'styleguide/index.html',
-                        'js/app.templates.js',
-                        'js/app.js.map',
                         'js/app.min.js.map',
-                        'js/app.browserified.js',
-                        'js/app.browserified.js.map',
-                        'js/crypto/pbkdf2-worker.browserified.js',
-                        'js/pbkdf2-worker.browserified.js',
                         'js/pbkdf2-worker.min.js.map',
                         'js/read-sandbox.min.js.map',
-                        'js/mailreader-parser-worker.browserified.js',
                         'js/mailreader-parser-worker.min.js.map',
-                        'js/tcp-socket-tls-worker.browserified.js',
                         'js/tcp-socket-tls-worker.min.js.map',
-                        'js/browserbox-compression-worker.browserified.js',
                         'js/browserbox-compression-worker.min.js.map',
                         'img/icon-100-ios.png',
                         'img/icon-114-ios.png',
