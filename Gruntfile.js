@@ -100,13 +100,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'src/css/read-sandbox.css': 'src/sass/read-sandbox.scss',
-                    'src/css/all.css': 'src/sass/all.scss'
+                    'compile/css/read-sandbox.css': 'src/sass/read-sandbox.scss',
+                    'compile/css/all.css': 'src/sass/all.scss'
                 }
             },
             styleguide: {
                 files: {
-                    'src/css/styleguide.css': 'src/sass/styleguide.scss'
+                    'compile/css/styleguide.css': 'src/sass/styleguide.scss'
                 }
             }
         },
@@ -116,13 +116,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'src/css/read-sandbox.css': 'src/css/read-sandbox.css',
-                    'src/css/all.css': 'src/css/all.css'
+                    'compile/css/read-sandbox.css': 'compile/css/read-sandbox.css',
+                    'compile/css/all.css': 'compile/css/all.css'
                 }
             },
             styleguide: {
                 files: {
-                    'src/css/styleguide.css': 'src/css/styleguide.css'
+                    'compile/css/styleguide.css': 'compile/css/styleguide.css'
                 }
             }
         },
@@ -132,13 +132,13 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/css/read-sandbox.min.css': 'src/css/read-sandbox.css',
-                    'dist/css/all.min.css': 'src/css/all.css'
+                    'dist/css/read-sandbox.min.css': 'compile/css/read-sandbox.css',
+                    'dist/css/all.min.css': 'compile/css/all.css'
                 }
             },
             styleguide: {
                 files: {
-                    'dist/styleguide/css/styleguide.min.css': 'src/css/styleguide.css'
+                    'dist/styleguide/css/styleguide.min.css': 'compile/css/styleguide.css'
                 }
             }
         },

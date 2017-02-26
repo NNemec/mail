@@ -3,7 +3,6 @@ npm-debug.log
 .DS_Store
 test/lib/
 .sass-cache
-src/css/
 dist/
 compile/
 release/
