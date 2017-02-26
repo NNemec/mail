@@ -849,7 +849,7 @@ Email.prototype.onConnect = function(imap) {
         // tls socket worker path for multithreaded tls in non-native tls environments
         credentials.imap.tlsWorkerPath = config.workerPath + '/tcp-socket-tls-worker.min.js';
         // enable multithreaded compression handling
-        credentials.imap.compressionWorkerPath = config.workerPath + '/browserbox-compression-worker.min.js';
+        credentials.imap.compressionWorkerPath = config.workerPath + '/emailjs-imap-client-compression-worker.min.js';
 
         self._imapClient = (imap || new ImapClient(credentials.imap));
 

@@ -179,7 +179,7 @@ module.exports = function(grunt) {
             },
             compressionWorker: {
                 files: {
-                    'build/js/browserbox-compression-worker.browserified.js': ['node_modules/wo-imap-client/node_modules/browserbox/src/browserbox-compression-worker.js']
+                    'build/js/emailjs-imap-client-compression-worker.browserified.js': ['node_modules/emailjs-imap-client/src/emailjs-imap-client-compression-worker.js']
                 },
                 options: browserifyOpt
             },
@@ -270,7 +270,7 @@ module.exports = function(grunt) {
             },
             compressionWorker: {
                 files: {
-                    'build/js/browserbox-compression-worker.browserified.js.map': ['build/js/browserbox-compression-worker.browserified.js'],
+                    'build/js/emailjs-imap-client-compression-worker.browserified.js.map': ['build/js/emailjs-imap-client-compression-worker.browserified.js'],
                 }
             },
             unitTest: {
@@ -361,10 +361,10 @@ module.exports = function(grunt) {
                 }
             },
             compressionWorker: {
-                src: ['build/js/browserbox-compression-worker.browserified.js'],
-                dest: 'dist/js/browserbox-compression-worker.min.js',
+                src: ['build/js/emailjs-imap-client-compression-worker.browserified.js'],
+                dest: 'dist/js/emailjs-imap-client-compression-worker.min.js',
                 options: {
-                    sourceMapName: 'dist/js/browserbox-compression-worker.min.js.map'
+                    sourceMapName: 'dist/js/emailjs-imap-client-compression-worker.min.js.map'
                 }
             },
             unitTest: {
@@ -456,11 +456,11 @@ module.exports = function(grunt) {
             },
             compressionWorker: {
                 files: {
-                    'dist/js/browserbox-compression-worker.min.js': ['dist/js/browserbox-compression-worker.min.js']
+                    'dist/js/emailjs-imap-client-compression-worker.min.js': ['dist/js/emailjs-imap-client-compression-worker.min.js']
                 },
                 options: {
                     sourceMap: true,
-                    sourceMapName: 'dist/js/browserbox-compression-worker.min.js.map'
+                    sourceMapName: 'dist/js/emailjs-imap-client-compression-worker.min.js.map'
                 }
             },
             options: {
@@ -652,7 +652,7 @@ module.exports = function(grunt) {
                         'js/read-sandbox.min.js.map',
                         'js/mailreader-parser-worker.min.js.map',
                         'js/tcp-socket-tls-worker.min.js.map',
-                        'js/browserbox-compression-worker.min.js.map',
+                        'js/emailjs-imap-client-compression-worker.min.js.map',
                         'img/icon-100-ios.png',
                         'img/icon-114-ios.png',
                         'img/icon-120-ios.png',
