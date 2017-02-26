@@ -24,6 +24,7 @@
     "fastclick": "1.0.6",
     "morgan": "^1.2.3",
     "ng-tags-input": "2.3.0",
+    "node-forge": "0.7.0",
     "npmlog": "^4.0.2",
     "socket.io": "^1.0.6",
     "underscore": "1.8.3"

@@ -50,7 +50,7 @@ module.exports = function(grunt) {
                     'node_modules/browsersmtp/src/*.js',
                     'node_modules/openpgp/dist/openpgp.min.js',
                     'node_modules/openpgp/dist/openpgp.worker.min.js',
-                    'src/lib/forge/forge.min.js',
+                    'node_modules/node-forge/dist/forge.min.js',
                     'dist/js/pbkdf2-worker.min.js'
                 ],
                 dest: 'test/lib/'
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
                 src: [
                     'node_modules/openpgp/dist/openpgp.min.js',
                     'node_modules/openpgp/dist/openpgp.worker.min.js',
-                    'src/lib/forge/forge.min.js'
+                    'node_modules/node-forge/dist/forge.min.js',
                 ],
                 dest: 'dist/js/'
             },
