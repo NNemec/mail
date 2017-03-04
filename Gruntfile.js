@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            dist: ['dist', 'build', 'src/css', 'test/lib', 'test/integration/src'],
+            dist: ['dist', 'build', 'src/css', 'release', 'test/lib', 'test/integration/src'],
             release: ['dist/**/*.js.map']
         },
 
