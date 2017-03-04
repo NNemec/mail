@@ -155,7 +155,7 @@ module.exports = function(grunt) {
         browserify: {
             app: {
                 files: {
-                    'build/js/app.browserified.js': ['src/js/app.js']
+                    'build/js/app.js': ['src/js/app.js']
                 },
                 options: browserifyOpt
             },
@@ -250,7 +250,7 @@ module.exports = function(grunt) {
         exorcise: {
             app: {
                 files: {
-                    'build/js/app.browserified.js.map': ['build/js/app.browserified.js'],
+                    'build/js/app.js.map': ['build/js/app.js'],
                 }
             },
             pbkdf2Worker: {
@@ -322,12 +322,12 @@ module.exports = function(grunt) {
                     'src/lib/phonenumber/PhoneNumberMetadata.js',
                     'src/lib/phonenumber/PhoneNumberNormalizer.js',
                     'src/lib/phonenumber/PhoneNumber.js',
-                    'build/js/app.browserified.js',
+                    'build/js/app.js',
                     '<%= ngtemplates.mail.dest %>'
                 ],
-                dest: 'dist/js/app.min.js',
+                dest: 'dist/js/app.js',
                 options: {
-                    sourceMapName: 'dist/js/app.min.js.map'
+                    sourceMapName: 'dist/js/app.js.map'
                 }
             },
             readSandbox: {
@@ -407,14 +407,14 @@ module.exports = function(grunt) {
         uglify: {
             app: {
                 files: {
-//                    'dist/js/app.min.js': ['dist/js/app.min.js']   --- breaks on ES6 features in emailjs-imap-client
+//                    'dist/js/app.js': ['dist/js/app.js']   --- breaks on ES6 features in emailjs-imap-client
                 },
                 options: {
                     mangle: false,
                     sourceMap: true,
-                    sourceMapIn: 'dist/js/app.min.js.map',
+                    sourceMapIn: 'dist/js/app.js.map',
                     sourceMapIncludeSources: true,
-                    sourceMapName: 'dist/js/app.min.js.map'
+                    sourceMapName: 'dist/js/app.js.map'
                 }
             },
             readSandbox: {
@@ -646,7 +646,7 @@ module.exports = function(grunt) {
                         'service-worker.js',
                         'styleguide/css/styleguide.min.css',
                         'styleguide/index.html',
-                        'js/app.min.js.map',
+                        'js/app.js.map',
                         'js/pbkdf2-worker.min.js.map',
                         'js/read-sandbox.min.js.map',
                         'js/mailreader-parser-worker.min.js.map',
