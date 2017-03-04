@@ -40,7 +40,6 @@
         "beforeEach",
         "after",
         "afterEach",
-        "FastClick",
         "angular",
         "forge",
         "Lawnchair",

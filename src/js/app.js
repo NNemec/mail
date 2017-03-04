@@ -19,6 +19,8 @@ require('./crypto');
 require('./service');
 require('./email');
 
+var FastClick = require('fastclick').FastClick;
+
 // init main angular module including dependencies
 var app = angular.module('mail', [
     'ngRoute',

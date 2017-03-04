@@ -316,7 +316,6 @@ module.exports = function(grunt) {
                     'node_modules/ng-tags-input/build/ng-tags-input.min.js',
                     'node_modules/ng-infinite-scroll/build/ng-infinite-scroll.min.js',
                     'node_modules/iframe-resizer/js/iframeResizer.min.js',
-                    'node_modules/fastclick/lib/fastclick.js',
                     'src/lib/lawnchair/lawnchair-git.js',
                     'src/lib/lawnchair/lawnchair-adapter-webkit-sqlite-git.js',
                     'src/lib/lawnchair/lawnchair-adapter-indexed-db-git.js',
