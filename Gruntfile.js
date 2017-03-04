@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            dist: ['dist', 'build', 'test/lib', 'test/integration/src'],
+            dist: ['dist', 'build', 'src/css', 'test/lib', 'test/integration/src'],
             release: ['dist/**/*.js.map']
         },
 
@@ -100,8 +100,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'build/css/read-sandbox.css': 'src/sass/read-sandbox.scss',
-                    'build/css/all.css': 'src/sass/all.scss'
+                    'src/css/read-sandbox.css': 'src/sass/read-sandbox.scss',
+                    'src/css/all.css': 'src/sass/all.scss'
                 }
             },
             styleguide: {
@@ -116,8 +116,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'build/css/read-sandbox.css': 'build/css/read-sandbox.css',
-                    'build/css/all.css': 'build/css/all.css'
+                    'src/css/read-sandbox.css': 'build/css/read-sandbox.css',
+                    'src/css/all.css': 'build/css/all.css'
                 }
             },
             styleguide: {
@@ -132,8 +132,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'dist/css/read-sandbox.min.css': 'build/css/read-sandbox.css',
-                    'dist/css/all.min.css': 'build/css/all.css'
+                    'dist/css/read-sandbox.css': 'src/css/read-sandbox.css',
+                    'dist/css/all.css': 'src/css/all.css'
                 }
             },
             styleguide: {
