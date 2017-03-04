@@ -37,6 +37,17 @@ module.exports = function(grunt) {
         },
 
         copy: {
+            lib: {
+                expand: true,
+                flatten: true,
+                cwd: './',
+                src: [
+                    'node_modules/openpgp/dist/openpgp.min.js',
+                    'node_modules/openpgp/dist/openpgp.worker.min.js',
+                    'node_modules/node-forge/dist/forge.min.js',
+                ],
+                dest: 'dist/js/'
+            },
             libTest: {
                 expand: true,
                 flatten: true,
@@ -54,17 +65,6 @@ module.exports = function(grunt) {
                     'dist/js/pbkdf2-worker.min.js'
                 ],
                 dest: 'test/lib/'
-            },
-            lib: {
-                expand: true,
-                flatten: true,
-                cwd: './',
-                src: [
-                    'node_modules/openpgp/dist/openpgp.min.js',
-                    'node_modules/openpgp/dist/openpgp.worker.min.js',
-                    'node_modules/node-forge/dist/forge.min.js',
-                ],
-                dest: 'dist/js/'
             },
             font: {
                 expand: true,
