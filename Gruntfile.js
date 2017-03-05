@@ -116,8 +116,8 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'src/css/read-sandbox.css': 'build/css/read-sandbox.css',
-                    'src/css/all.css': 'build/css/all.css'
+                    'src/css/read-sandbox.css': 'src/css/read-sandbox.css',
+                    'src/css/all.css': 'src/css/all.css'
                 }
             },
             styleguide: {
