@@ -36,7 +36,7 @@ var app = angular.module('mail', [
 ]);
 
 // set router paths
-app.config(function($routeProvider, $animateProvider) {
+app.config(function($routeProvider, $animateProvider, $locationProvider) {
     $routeProvider.when('/login', {
         templateUrl: 'tpl/login.html',
         controller: require('./controller/login/login')
@@ -92,6 +92,10 @@ app.config(function($routeProvider, $animateProvider) {
 
     // activate ngAnimate for whitelisted classes only
     $animateProvider.classNameFilter(/lightbox/);
+
+    // fix for change between AngularJS 1.5 and 1.6
+    // see https://docs.angularjs.org/guide/migration#commit-aa077e8
+    $locationProvider.hashPrefix('');
 });
 
 app.run(function($rootScope) {
