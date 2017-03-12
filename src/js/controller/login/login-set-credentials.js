@@ -48,6 +48,9 @@ var SetCredentialsCtrl = function($scope, $location, $routeParams, $q, auth, con
         $scope.imapEncryption = ENCRYPTION_METHOD_NONE;
     }
 
+    $scope.imapEncryption = "" + $scope.imapEncryption
+    $scope.smtpEncryption = "" + $scope.smtpEncryption
+
     //
     // Scope functions
     //
