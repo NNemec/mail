@@ -179,7 +179,7 @@ module.exports = function(grunt) {
             },
             mailreaderWorker: {
                 files: {
-                    'build/js/mailreader-parser-worker.browserified.js': ['node_modules/mailreader/src/mailreader-parser-worker-browserify.js']
+                    'src/js/mailreader-parser-worker.min.js': ['node_modules/mailreader/src/mailreader-parser-worker-browserify.js']
                 },
                 options: browserifyOpt
             },
@@ -272,7 +272,7 @@ module.exports = function(grunt) {
             },
             mailreaderWorker: {
                 files: {
-                    'build/js/mailreader-parser-worker.browserified.js.map': ['build/js/mailreader-parser-worker.browserified.js'],
+                    'src/js/mailreader-parser-worker.min.js.map': ['src/js/mailreader-parser-worker.min.js'],
                 }
             },
             tlsWorker: {
@@ -355,7 +355,7 @@ module.exports = function(grunt) {
                 }
             },
             mailreaderWorker: {
-                src: ['build/js/mailreader-parser-worker.browserified.js'],
+                src: ['src/js/mailreader-parser-worker.min.js'],
                 dest: 'dist/js/mailreader-parser-worker.min.js',
                 options: {
                     sourceMapName: 'dist/js/mailreader-parser-worker.min.js.map'
