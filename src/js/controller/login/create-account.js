@@ -1,5 +1,8 @@
 'use strict';
 
+var libphonenumber = require('google-libphonenumber');
+var phoneNumberUtil = libphonenumber.PhoneNumberUtil.getInstance();
+
 var CreateAccountCtrl = function($scope, $location, $routeParams, $q, auth, admin, appConfig, dialog) {
     !$routeParams.dev && !auth.isInitialized() && $location.path('/'); // init app
 
@@ -36,8 +39,8 @@ var CreateAccountCtrl = function($scope, $location, $routeParams, $q, auth, admi
         }).then(function() {
             // read form values
             var emailAddress = $scope.user + $scope.domain;
-            var phone = PhoneNumber.Parse($scope.dial, $scope.region);
-            if (!phone || !phone.internationalNumber) {
+            var phone = phoneNumberUtil.parse($scope.dial, $scope.region);
+            if (!phoneNumberUtil.isValidNumber(phone)) {
                 throw new Error('Invalid phone number!');
             }
 
@@ -52,7 +55,7 @@ var CreateAccountCtrl = function($scope, $location, $routeParams, $q, auth, admi
             return admin.createUser({
                 emailAddress: emailAddress,
                 password: $scope.pass,
-                phone: phone.internationalNumber
+                phone: phoneNumberUtil.format(phone, libphonenumber.PhoneNumberFormat.INTERNATIONAL),
             });
 
         }).then(function() {

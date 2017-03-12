@@ -331,9 +331,6 @@ module.exports = function(grunt) {
                     'src/lib/lawnchair/lawnchair-git.js',
                     'src/lib/lawnchair/lawnchair-adapter-webkit-sqlite-git.js',
                     'src/lib/lawnchair/lawnchair-adapter-indexed-db-git.js',
-                    'src/lib/phonenumber/PhoneNumberMetadata.js',
-                    'src/lib/phonenumber/PhoneNumberNormalizer.js',
-                    'src/lib/phonenumber/PhoneNumber.js',
                     'build/js/app.js',
                     '<%= ngtemplates.mail.dest %>'
                 ],
@@ -388,9 +385,6 @@ module.exports = function(grunt) {
                     'src/lib/lawnchair/lawnchair-git.js',
                     'src/lib/lawnchair/lawnchair-adapter-webkit-sqlite-git.js',
                     'src/lib/lawnchair/lawnchair-adapter-indexed-db-git.js',
-                    'src/lib/phonenumber/PhoneNumberMetadata.js',
-                    'src/lib/phonenumber/PhoneNumberNormalizer.js',
-                    'src/lib/phonenumber/PhoneNumber.js',
                     'test/unit/index.browserified.js'
                 ],
                 dest: 'test/unit/index.js',
