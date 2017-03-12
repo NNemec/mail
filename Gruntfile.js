@@ -325,9 +325,9 @@ module.exports = function(grunt) {
                     'build/js/app.js',
                     '<%= ngtemplates.mail.dest %>'
                 ],
-                dest: 'dist/js/app.js',
+                dest: 'dist/js/boot.js',
                 options: {
-                    sourceMapName: 'dist/js/app.js.map'
+                    sourceMapName: 'dist/js/boot.js.map'
                 }
             },
             readSandbox: {
@@ -407,14 +407,14 @@ module.exports = function(grunt) {
         uglify: {
             app: {
                 files: {
-//                    'dist/js/app.js': ['dist/js/app.js']   --- breaks on ES6 features in emailjs-imap-client
+//                    'dist/js/boot.js': ['dist/js/boot.js']   --- breaks on ES6 features in emailjs-imap-client
                 },
                 options: {
                     mangle: false,
                     sourceMap: true,
-                    sourceMapIn: 'dist/js/app.js.map',
+                    sourceMapIn: 'dist/js/boot.js.map',
                     sourceMapIncludeSources: true,
-                    sourceMapName: 'dist/js/app.js.map'
+                    sourceMapName: 'dist/js/boot.js.map'
                 }
             },
             readSandbox: {
@@ -646,7 +646,7 @@ module.exports = function(grunt) {
                         'service-worker.js',
                         'styleguide/css/styleguide.min.css',
                         'styleguide/index.html',
-                        'js/app.js.map',
+                        'js/boot.js.map',
                         'js/pbkdf2-worker.min.js.map',
                         'js/read-sandbox.js.map',
                         'js/mailreader-parser-worker.min.js.map',
