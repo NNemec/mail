@@ -32,11 +32,23 @@ module.exports = function(grunt) {
         },
 
         clean: {
-            dist: ['dist', 'build', 'src/css', 'release', 'test/lib', 'test/integration/src'],
+            dist: ['dist', 'build', 'src/css', 'release', 'test/lib', 'test/integration/src',
+                   'src/js/*.min.js'],
             release: ['dist/**/*.js.map']
         },
 
         copy: {
+            srclib: {
+                expand: true,
+                flatten: true,
+                cwd: './',
+                src: [
+                    'node_modules/openpgp/dist/openpgp.min.js',
+                    'node_modules/openpgp/dist/openpgp.worker.min.js',
+                    'node_modules/node-forge/dist/forge.min.js',
+                ],
+                dest: 'src/js/'
+            },
             lib: {
                 expand: true,
                 flatten: true,

@@ -9,6 +9,7 @@ build/
 release/
 test/integration/src/
 src/img/icons/all.svg
+src/js/*.min.js
 test/*/index.js
 test/**/*.browserified.js
 test/**/*.js.map
