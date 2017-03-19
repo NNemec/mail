@@ -185,7 +185,7 @@ module.exports = function(grunt) {
             },
             pbkdf2Worker: {
                 files: {
-                    'build/js/pbkdf2-worker.browserified.js': ['src/js/crypto/pbkdf2-worker.js']
+                    'src/js/pbkdf2-worker.min.js': ['src/js/crypto/pbkdf2-worker.js']
                 },
                 options: browserifyOpt
             },
@@ -279,7 +279,7 @@ module.exports = function(grunt) {
             },
             pbkdf2Worker: {
                 files: {
-                    'build/js/pbkdf2-worker.browserified.js.map': ['build/js/pbkdf2-worker.browserified.js'],
+                    'src/js/pbkdf2-worker.min.js.map': ['src/js/pbkdf2-worker.min.js'],
                 }
             },
             mailreaderWorker: {
@@ -360,7 +360,7 @@ module.exports = function(grunt) {
                 dest: 'dist/js/read-sandbox.js'
             },
             pbkdf2Worker: {
-                src: ['build/js/pbkdf2-worker.browserified.js'],
+                src: ['src/js/pbkdf2-worker.min.js'],
                 dest: 'dist/js/pbkdf2-worker.min.js',
                 options: {
                     sourceMapName: 'dist/js/pbkdf2-worker.min.js.map'
