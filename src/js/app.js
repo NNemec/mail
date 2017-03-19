@@ -138,3 +138,8 @@ function bootstrap() {
         angular.bootstrap(document, ['mail']);
     });
 }
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    var all_svg = document.querySelector("#all_svg").import.body.childNodes[0];
+    document.querySelector("#all_svg_template").appendChild(document.importNode(all_svg,true));
+});

@@ -24,6 +24,8 @@
     <link rel="icon" sizes="192x192" href="img/icon-192-android.png">
     <link rel="icon" sizes="196x196" href="img/icon-196-universal.png">
 
+    <link rel="import" id="all_svg" href="img/icons/all.svg">
+
     <!-- theme color -->
     <meta name="theme-color" content="#00c6ff">
     <!-- standard web app manifest -->
@@ -42,10 +44,8 @@
 
   <body wo-key-shortcuts>
 
-    <!-- inline icons have to come first, hide immediately with inline styles -->
-    <div style="width: 0; height: 0; visibility: hidden;">
-        <!-- @import img/icons/all.svg -->
-    </div>
+    <!-- inline icons will be inserted here from imported all.svg file -->
+    <template id="all_svg_template"></template>
 
     <div ng-view class="main-app-view"></div>
 

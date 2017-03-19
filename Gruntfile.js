@@ -90,6 +90,12 @@ module.exports = function(grunt) {
                 src: ['*'],
                 dest: 'dist/img/'
             },
+            icons: {
+                expand: true,
+                cwd: 'src/img/icons',
+                src: ['all.svg'],
+                dest: 'dist/img/icons'
+            },
             tpl: {
                 expand: true,
                 cwd: 'src/tpl/',
@@ -101,7 +107,13 @@ module.exports = function(grunt) {
                 cwd: 'src/',
                 src: ['*.js', '*.json', 'manifest.*'],
                 dest: 'dist/'
-            }
+            },
+            html: {
+                expand: true,
+                cwd: 'src/',
+                src: ['index.html'],
+                dest: 'dist/'
+            },
         },
 
         // Stylesheets
@@ -518,21 +530,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-        'string-replace': {
-            index: {
-                files: {
-                    'dist/index.html': 'src/index.html'
-                },
-                options: {
-                    replacements: [{
-                        pattern: /<!-- @import (.*?) -->/ig,
-                        replacement: function(match, p1) {
-                            return grunt.file.read('src/' + p1);
-                        }
-                    }]
-                }
-            }
-        },
 
         // Styleguide
 
@@ -601,7 +598,7 @@ module.exports = function(grunt) {
             },
             icons: {
                 files: ['src/index.html', 'src/img/icons/*.svg', '!src/img/icons/all.svg'],
-                tasks: ['svgmin', 'svgstore', 'string-replace', 'dist-styleguide', 'offline-cache']
+                tasks: ['svgmin', 'svgstore', 'copy:icons', 'dist-styleguide', 'offline-cache']
             },
             lib: {
                 files: ['src/lib/**/*.js'],
@@ -781,7 +778,7 @@ module.exports = function(grunt) {
         'concat:integrationTest'
     ]);
     grunt.registerTask('dist-copy', ['copy']);
-    grunt.registerTask('dist-assets', ['svgmin', 'svgstore', 'string-replace']);
+    grunt.registerTask('dist-assets', ['svgmin', 'svgstore', 'copy:icons']);
     grunt.registerTask('dist-styleguide', ['sass:styleguide', 'autoprefixer:styleguide', 'csso:styleguide', 'assemble:styleguide']);
     // generate styleguide after manifest to forward version number to styleguide
     grunt.registerTask('dist', ['clean:dist', 'shell', 'dist-css', 'dist-js', 'dist-assets', 'dist-copy', 'manifest', 'dist-styleguide']);
