@@ -1,11 +1,12 @@
 var _ = require('underscore');
-require('jquery');
+var jQuery = require('jquery');
+var $ = jQuery;
 require('angular');
 require('angular-route');
 require('angular-animate');
 require('ng-tags-input');
 require('ng-infinite-scroll');
-require('iframe-resizer');
+var iFrameResize = require('iframe-resizer').iframeResizer;
 
 var Lawnchair = require('./lib/lawnchair/lawnchair-git');
 require('./lib/lawnchair/lawnchair-adapter-webkit-sqlite-git');
