@@ -355,9 +355,9 @@ module.exports = function(grunt) {
                 src: [
                     'node_modules/dompurify/src/purify.js',
                     'node_modules/iframe-resizer/js/iframeResizer.contentWindow.min.js',
-                    'src/js/read-sandbox.js'
+                    'src/js/directive/read-sandbox.js'
                 ],
-                dest: 'dist/js/read-sandbox.js'
+                dest: 'src/js/read-sandbox.min.js'
             },
             pbkdf2Worker: {
                 src: ['src/js/pbkdf2-worker.min.js'],
@@ -437,11 +437,11 @@ module.exports = function(grunt) {
             },
             readSandbox: {
                 files: {
-                    'dist/js/read-sandbox.js': ['dist/js/read-sandbox.js']
+                    'dist/js/read-sandbox.min.js': ['src/js/read-sandbox.min.js']
                 },
                 options: {
                     sourceMap: true,
-                    sourceMapName: 'dist/js/read-sandbox.js.map'
+                    sourceMapName: 'dist/js/read-sandbox.min.js.map'
                 }
             },
             pbkdf2Worker: {
@@ -651,7 +651,7 @@ module.exports = function(grunt) {
                         'styleguide/index.html',
                         'js/boot.js.map',
                         'js/pbkdf2-worker.min.js.map',
-                        'js/read-sandbox.js.map',
+                        'js/read-sandbox.min.js.map',
                         'js/mailreader-parser-worker.min.js.map',
                         'js/tcp-socket-tls-worker.min.js.map',
                         'js/emailjs-imap-client-compression-worker.min.js.map',
