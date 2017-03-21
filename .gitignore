@@ -11,6 +11,8 @@ test/integration/src/
 src/img/icons/all.svg
 src/js/*.min.js
 src/js/*.min.js.map
+src/js/**/*.js
+src/js/**/*.js.map
 test/*/index.js
 test/**/*.browserified.js
 test/**/*.js.map
