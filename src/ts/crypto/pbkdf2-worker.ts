@@ -21,5 +21,5 @@ self.onmessage = function(e) {
     }
 
     // pass output back to main thread
-    self.postMessage(key);
+    (self as any as Worker).postMessage(key);
 };
