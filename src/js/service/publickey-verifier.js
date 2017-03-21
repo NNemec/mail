@@ -1,5 +1,7 @@
 'use strict';
 
+var DEACTIVATE_KEYSERVER = true;
+
 var MSG_PART_ATTR_CONTENT = 'content';
 var MSG_PART_TYPE_TEXT = 'text';
 
@@ -53,7 +55,7 @@ PublickeyVerifier.prototype.persistKeypair = function() {
 PublickeyVerifier.prototype.verify = function() {
     // https://keys.whiteout.io is offline
     // so we have to deactivate the keyserver query at this point :-(
-    return Promise.resolve();
+    if(DEACTIVATE_KEYSERVER) return Promise.resolve();
 
     var self = this,
         verificationSuccessful = false;

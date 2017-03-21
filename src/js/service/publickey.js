@@ -1,5 +1,7 @@
 'use strict';
 
+var DEACTIVATE_KEYSERVER = true;
+
 var ngModule = angular.module('woServices');
 ngModule.service('publicKey', PublicKey);
 module.exports = PublicKey;
@@ -14,7 +16,7 @@ function PublicKey(publicKeyRestDao) {
 PublicKey.prototype.verify = function(uuid) {
     // https://keys.whiteout.io is offline
     // so we have to deactivate the keyserver query at this point :-(
-    return Promise.resolve();
+    if(DEACTIVATE_KEYSERVER) return Promise.resolve();
 
     return this._restDao.get({
         uri: '/verify/' + uuid,
@@ -35,7 +37,7 @@ PublicKey.prototype.verify = function(uuid) {
 PublicKey.prototype.get = function(keyId) {
     // https://keys.whiteout.io is offline
     // so we have to deactivate the keyserver query at this point :-(
-    return Promise.resolve();
+    if(DEACTIVATE_KEYSERVER) return Promise.resolve();
 
     return this._restDao.get({
         uri: '/publickey/key/' + keyId
@@ -54,7 +56,7 @@ PublicKey.prototype.get = function(keyId) {
 PublicKey.prototype.getByUserId = function(userId) {
     // https://keys.whiteout.io is offline
     // so we have to deactivate the keyserver query at this point :-(
-    return Promise.resolve();
+    if(DEACTIVATE_KEYSERVER) return Promise.resolve();
 
     return this._restDao.get({
         uri: '/publickey/user/' + userId
@@ -86,7 +88,7 @@ PublicKey.prototype.getByUserId = function(userId) {
 PublicKey.prototype.put = function(pubkey) {
     // https://keys.whiteout.io is offline
     // so we have to deactivate the keyserver query at this point :-(
-    return Promise.resolve();
+    if(DEACTIVATE_KEYSERVER) return Promise.resolve();
 
     var uri = '/publickey/user/' + pubkey.userId + '/key/' + pubkey._id;
     return this._restDao.put(pubkey, uri);
@@ -98,7 +100,7 @@ PublicKey.prototype.put = function(pubkey) {
 PublicKey.prototype.remove = function(keyId) {
     // https://keys.whiteout.io is offline
     // so we have to deactivate the keyserver query at this point :-(
-    return Promise.resolve();
+    if(DEACTIVATE_KEYSERVER) return Promise.resolve();
 
     var uri = '/publickey/key/' + keyId;
     return this._restDao.remove(uri);
