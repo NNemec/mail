@@ -1,5 +1,3 @@
-'use strict';
-
 var FOLDER_TYPE_INBOX = 'Inbox';
 var FOLDER_TYPE_SENT = 'Sent';
 var FOLDER_TYPE_DRAFTS = 'Drafts';
@@ -16,7 +14,7 @@ var POST_UPDATE_DB_VERSION = 5;
  * Due to an overlooked issue, there may be multiple folders, e.g. for sent mails.
  * This removes the "duplicate" folders.
  */
-function update(options) {
+export default function updateV5(options) {
     // remove the emails
     return options.userStorage.listItems(FOLDER_DB_TYPE).then(function(stored) {
         var folders = stored[0] || [];
@@ -41,5 +39,3 @@ function update(options) {
         return options.appConfigStorage.storeList([POST_UPDATE_DB_VERSION], VERSION_DB_TYPE);
     });
 }
-
-module.exports = update;

@@ -1,4 +1,4 @@
-'use strict';
+import * as angular from "angular";
 
 var ngModule = angular.module('woServices');
 
@@ -30,7 +30,7 @@ ngModule.factory('oauthRestDao', function() {
     return dao;
 });
 
-module.exports = RestDAO;
+export default RestDAO;
 
 function RestDAO() {}
 

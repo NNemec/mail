@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * Update handler for transition database version 3 -> 4
  *
@@ -7,7 +5,7 @@
  * indexeddb. only gmail was allowed as a mail service provider before,
  * so let's add this...
  */
-function update(options) {
+export default function updateV4(options) {
     var VERSION_DB_TYPE = 'dbVersion',
         EMAIL_ADDR_DB_KEY = 'emailaddress',
         USERNAME_DB_KEY = 'username',
@@ -71,5 +69,3 @@ function update(options) {
         });
     }
 }
-
-module.exports = update;

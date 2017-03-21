@@ -1,12 +1,10 @@
-'use strict';
-
 /**
  * Update handler for transition database version 1 -> 2
  *
  * In database version 2, the stored email objects have to be purged, because the
  * new data model stores information about the email structure in the property 'bodyParts'.
  */
-function updateV2(options) {
+export default function updateV2(options) {
     var emailDbType = 'email_',
         versionDbType = 'dbVersion',
         postUpdateDbVersion = 2;
@@ -17,5 +15,3 @@ function updateV2(options) {
         return options.appConfigStorage.storeList([postUpdateDbVersion], versionDbType);
     });
 }
-
-module.exports = updateV2;

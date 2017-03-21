@@ -1,8 +1,9 @@
-'use strict';
+import * as angular from "angular";
 
 var ngModule = angular.module('woUtil');
 ngModule.service('connectionDoctor', ConnectionDoctor);
-module.exports = ConnectionDoctor;
+
+export default ConnectionDoctor;
 
 var TCPSocket = require('emailjs-tcp-socket'),
     ImapClient = require('wo-imap-client'),
