@@ -4,8 +4,20 @@ var ngModule = angular.module('woCrypto');
 ngModule.service('pgp', PGP);
 module.exports = PGP;
 
-var util = openpgp.util,
-    config = require('../app-config').config;
+declare module openpgp {
+    namespace config {
+        var commentstring: string;
+    }
+    namespace message {
+        function readSignedContent(message: any, pgpSignature: any): any;
+    }
+    namespace util {
+        var emailRegEx: RegExp;
+    }
+    function initWorker(path: string);
+}
+
+var config = require('../app-config').config;
 
 /**
  * High level crypto api that handles all calls to OpenPGP.js
@@ -21,10 +33,10 @@ function PGP() {
  * @return {Promise}
  */
 PGP.prototype.generateKeys = function(options) {
-    return new Promise(function(resolve) {
+    return Promise.resolve().then(() => {
         var userId, name, passphrase;
 
-        if (!util.emailRegEx.test(options.emailAddress) || !options.keySize) {
+        if (!openpgp.util.emailRegEx.test(options.emailAddress) || !options.keySize) {
             throw new Error('Crypto init failed. Not all options set!');
         }
 
@@ -33,21 +45,22 @@ PGP.prototype.generateKeys = function(options) {
         userId = name + ' <' + options.emailAddress + '>';
         passphrase = (options.passphrase) ? options.passphrase : undefined;
 
-        resolve({
+        return {
             userId: userId,
             passphrase: passphrase
-        });
+        };
 
-    }).then(function(res) {
+    }).then(res => {
         return openpgp.generateKeyPair({
             keyType: 1, // (keytype 1=RSA)
             numBits: options.keySize,
             userId: res.userId,
             passphrase: res.passphrase
         });
-    }).then(function(keys) {
+    }).then(keys => {
         return {
-            keyId: keys.key.primaryKey.getKeyId().toHex().toUpperCase(),
+            // HACK to work around openpgp.d.ts only being available for openpgp 2.x:
+            keyId: (keys as any).key.primaryKey.getKeyId().toHex().toUpperCase(),
             privateKeyArmored: keys.privateKeyArmored,
             publicKeyArmored: keys.publicKeyArmored
         };
@@ -282,7 +295,7 @@ PGP.prototype.changePassphrase = function(options) {
  */
 PGP.prototype.encrypt = function(plaintext, publicKeysArmored) {
     var self = this;
-    return new Promise(function(resolve) {
+    return Promise.resolve().then(() => {
         var publicKeys;
 
         // check keys
@@ -300,7 +313,7 @@ PGP.prototype.encrypt = function(plaintext, publicKeysArmored) {
         } catch (err) {
             throw new Error('Error encrypting plaintext!');
         }
-        resolve(publicKeys);
+        return publicKeys;
 
     }).then(function(publicKeys) {
         if (publicKeys) {
@@ -322,7 +335,7 @@ PGP.prototype.encrypt = function(plaintext, publicKeysArmored) {
  */
 PGP.prototype.decrypt = function(ciphertext, publicKeyArmored) {
     var self = this;
-    return new Promise(function(resolve) {
+    return Promise.resolve().then(() => {
         var publicKeys, message;
 
         // check keys
@@ -342,10 +355,10 @@ PGP.prototype.decrypt = function(ciphertext, publicKeyArmored) {
         } catch (err) {
             throw new Error('Error parsing encrypted PGP message!');
         }
-        resolve({
+        return {
             publicKeys: publicKeys,
             message: message
-        });
+        };
 
     }).then(function(res) {
         // decrypt and verify pgp message
@@ -368,7 +381,7 @@ PGP.prototype.decrypt = function(ciphertext, publicKeyArmored) {
  */
 PGP.prototype.verifyClearSignedMessage = function(clearSignedText, publicKeyArmored) {
     var self = this;
-    return new Promise(function(resolve) {
+    return Promise.resolve().then(()=>{
         var publicKeys, message;
 
         // check keys
@@ -388,10 +401,10 @@ PGP.prototype.verifyClearSignedMessage = function(clearSignedText, publicKeyArmo
         } catch (err) {
             throw new Error('Error verifying signed PGP message!');
         }
-        resolve({
+        return {
             publicKeys: publicKeys,
             message: message
-        });
+        };
 
     }).then(function(res) {
         return openpgp.verifyClearSignedMessage(res.publicKeys, res.message);
@@ -410,7 +423,7 @@ PGP.prototype.verifyClearSignedMessage = function(clearSignedText, publicKeyArmo
  */
 PGP.prototype.verifySignedMessage = function(message, pgpSignature, publicKeyArmored) {
     var self = this;
-    return new Promise(function(resolve) {
+    return Promise.resolve().then(()=>{
         var publicKeys, signatures;
 
         // check keys
@@ -437,7 +450,7 @@ PGP.prototype.verifySignedMessage = function(message, pgpSignature, publicKeyArm
             throw new Error('Error verifying signed PGP message!');
         }
 
-        resolve(checkSignatureValidity(signatures));
+        return checkSignatureValidity(signatures);
     });
 };
 
