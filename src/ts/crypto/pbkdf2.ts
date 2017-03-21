@@ -4,6 +4,22 @@
 
 'use strict';
 
+import * as forge from "node-forge";
+
+// declare parts of node-forge that are missing in DT's .d.ts
+declare module "node-forge" {
+    namespace md {
+        namespace sha256 {
+            function create(): any;
+        }
+    }
+
+    namespace pkcs5 {
+        function pbkdf2(password: string, salt: string, iter_count: number, dkLen: number, md: any): string;
+    }
+};
+
+
 var pbkdf2: any = {};
 
 /**
