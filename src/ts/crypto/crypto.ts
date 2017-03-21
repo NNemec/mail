@@ -1,8 +1,8 @@
 'use strict';
 
 var ngModule = angular.module('woCrypto');
-ngModule.service('crypto', Crypto);
-module.exports = Crypto;
+ngModule.service('crypto', CryptoService);
+module.exports = CryptoService;
 
 var aes = require('crypto-lib').aes,
     pbkdf2 = require('./pbkdf2'),
@@ -13,7 +13,7 @@ var aes = require('crypto-lib').aes,
  * High level crypto api that invokes native crypto (if available) and
  * gracefully degrades to JS crypto (if unavailable)
  */
-function Crypto() {}
+function CryptoService() {}
 
 /**
  * Encrypt plaintext using AES-GCM.
@@ -22,7 +22,7 @@ function Crypto() {}
  * @param  {String}   iv The base64 encoded IV
  * @return {String} The base64 encoded ciphertext
  */
-Crypto.prototype.encrypt = function(plaintext, key, iv) {
+CryptoService.prototype.encrypt = function(plaintext, key, iv) {
     return new Promise(function(resolve) {
         var ct = aes.encrypt(plaintext, key, iv);
         resolve(ct);
@@ -36,7 +36,7 @@ Crypto.prototype.encrypt = function(plaintext, key, iv) {
  * @param  {String}   iv The base64 encoded IV
  * @return {String} The decrypted plaintext in UTF-16
  */
-Crypto.prototype.decrypt = function(ciphertext, key, iv) {
+CryptoService.prototype.decrypt = function(ciphertext, key, iv) {
     return new Promise(function(resolve) {
         var pt = aes.decrypt(ciphertext, key, iv);
         resolve(pt);
@@ -46,7 +46,7 @@ Crypto.prototype.decrypt = function(ciphertext, key, iv) {
 /**
  * Do PBKDF2 key derivation in a WebWorker thread
  */
-Crypto.prototype.deriveKey = function(password, salt, keySize) {
+CryptoService.prototype.deriveKey = function(password, salt, keySize) {
     return this.startWorker({
         script: config.workerPath + '/pbkdf2-worker.min.js',
         args: {
@@ -64,7 +64,7 @@ Crypto.prototype.deriveKey = function(password, salt, keySize) {
 // helper functions
 //
 
-Crypto.prototype.startWorker = function(options) {
+CryptoService.prototype.startWorker = function(options) {
     return new Promise(function(resolve, reject) {
         // check for WebWorker support
         if (window.Worker) {
