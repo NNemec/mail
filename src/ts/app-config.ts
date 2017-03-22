@@ -55,7 +55,7 @@ appCfg.config = {
 if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.getManifest) {
     setConfigParams(chrome.runtime.getManifest());
 } else if (typeof $ !== 'undefined' && $.get) {
-    $.get('/manifest.json', setConfigParams, 'json');
+    $.get('manifest.json', setConfigParams, 'json');
 }
 
 function setConfigParams(manifest) {
