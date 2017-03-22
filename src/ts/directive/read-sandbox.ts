@@ -58,7 +58,7 @@ function attachClickHandlers() {
         var text = e.target.textContent || e.target.innerText;
         if (checkEmailAddress(text)) {
             e.preventDefault();
-            window.parentIFrame.sendMessage({
+            window['parentIFrame'].sendMessage({
                 type: 'email',
                 address: text
             });
