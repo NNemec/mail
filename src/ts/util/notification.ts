@@ -9,7 +9,8 @@ function Notif(appConfig, axe) {
     this._axe = axe;
 
     if (window['Notification']) {
-        this.hasPermission = Notification.permission === "granted";
+        this.hasPermission = (Notification as any).permission === "granted";
+        // "as any" -- workaround for https://github.com/Microsoft/TypeScript/issues/14701
     }
 }
 
