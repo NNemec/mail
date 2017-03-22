@@ -468,7 +468,8 @@ Email.prototype.getBody = function(options) {
             loadedMessages = loadedMessages.concat(imapMessages);
 
         }).catch(function(err) {
-            axe.error('Can not fetch messages from IMAP. Reason: ' + err.message + (err.stack ? ('\n' + err.stack) : ''));
+            if(!err.code || err.code != 42) // don't write error message if offline
+                axe.error('Can not fetch messages from IMAP. Reason: ' + err.message + (err.stack ? ('\n' + err.stack) : ''));
 
             // stop the loading spinner for those messages we can't fetch
             needsImapFetch.forEach(function(message) {
