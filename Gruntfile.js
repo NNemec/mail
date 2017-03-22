@@ -425,6 +425,13 @@ module.exports = function(grunt) {
             }
         },
 
+        run: {
+            sorcery: {
+                cmd: 'sorcery',
+                args: [ '-i', 'dist/js/boot.js' ]
+            }
+        },
+
         uglify: {
             app: {
                 files: {
@@ -758,7 +765,7 @@ module.exports = function(grunt) {
 
     // Build tasks
     grunt.registerTask('dist-css', ['sass:dist', 'autoprefixer:dist', 'csso:dist']);
-    grunt.registerTask('dist-js', ['browserify', 'exorcise', 'ngtemplates', 'concat', 'uglify']);
+    grunt.registerTask('dist-js', ['browserify', 'exorcise', 'ngtemplates', 'concat', 'run:sorcery', 'uglify']);
     grunt.registerTask('dist-js-app', [
         'browserify:app',
         'browserify:pbkdf2Worker',
@@ -768,6 +775,7 @@ module.exports = function(grunt) {
         'concat:app',
         'concat:readSandbox',
         'concat:pbkdf2Worker',
+        'run:sorcery',
         'offline-cache'
     ]);
     grunt.registerTask('dist-js-unitTest', [
