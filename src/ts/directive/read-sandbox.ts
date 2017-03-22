@@ -1,12 +1,5 @@
-'use strict';
-
-import { DOMPurify } from "dompurify";
-
-interface Window {
-    readonly parentIFrame: {
-        sendMessage: any;
-    }
-}
+declare var DOMPurify: any;
+//import { DOMPurify } from "dompurify";
 
 // add DOMPurify hook to sanitze attributes
 DOMPurify.addHook('afterSanitizeAttributes', function(node) {
