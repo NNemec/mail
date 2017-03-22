@@ -1,3 +1,5 @@
+require('source-map-support').install();
+
 var _ = require('underscore');
 var jQuery = require('jquery');
 var $ = jQuery;

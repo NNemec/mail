@@ -79,6 +79,7 @@
     "openpgp": "^1.6.2",
     "pgpbuilder": "~1.0.0",
     "sinon": "~1.17.7",
+    "source-map-support": "0.4.14",
     "sw-precache": "^4.3.0",
     "time-grunt": "^1.0.0",
     "wo-browsercrow": "git://github.com/NNemec/wo-browsercrow.git",
