@@ -377,22 +377,3 @@ PrivateKey.prototype._parse = function(options) {
         });
     });
 };
-
-/**
- * Helper function that recursively traverses the body parts tree. Looks for bodyParts that match the provided type and aggregates them
- *
- * @param {Array} bodyParts The bodyParts array
- * @param {String} type The type to look up
- * @param {undefined} result Leave undefined, only used for recursion
- */
-function filterBodyParts(bodyParts, type, result) {
-    result = result || [];
-    bodyParts.forEach(function(part) {
-        if (part.type === type) {
-            result.push(part);
-        } else if (Array.isArray(part.content)) {
-            filterBodyParts(part.content, type, result);
-        }
-    });
-    return result;
-}

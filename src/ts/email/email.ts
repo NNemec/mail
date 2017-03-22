@@ -1747,18 +1747,20 @@ function updateUnreadCount(folder, countAllMessages?) {
  *
  * @param {Array} bodyParts The bodyParts array
  * @param {String} type The type to look up
- * @param {undefined} result Leave undefined, only used for recursion
  */
-function filterBodyParts(bodyParts, type, result) {
-    result = result || [];
-    bodyParts.forEach(function(part) {
-        if (part.type === type) {
-            result.push(part);
-        } else if (Array.isArray(part.content)) {
-            filterBodyParts(part.content, type, result);
-        }
-    });
-    return result;
+function filterBodyParts(bodyParts, type) {
+    function recurse(bodyParts, type, result) {
+        bodyParts.forEach(function(part) {
+            if (part.type === type) {
+                result.push(part);
+            } else if (Array.isArray(part.content)) {
+                recurse(part.content, type, result);
+            }
+        });
+    }
+    var res = [];
+    recurse(bodyParts,type,res);
+    return res;
 }
 
 /**
