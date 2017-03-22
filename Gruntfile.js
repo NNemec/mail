@@ -275,6 +275,9 @@ module.exports = function(grunt) {
             app: {
                 files: {
                     'build/js/app.js.map': ['build/js/app.js'],
+                },
+                options: {
+                    root: "../.."
                 }
             },
             pbkdf2Worker: {
