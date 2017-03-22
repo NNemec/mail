@@ -41,6 +41,12 @@
     "wo-pgpmailer": "git://github.com/NNemec/wo-pgpmailer.git"
   },
   "devDependencies": {
+    "@types/angular": "1.6.9",
+    "@types/chrome": "0.0.42",
+    "@types/jquery": "2.0.41",
+    "@types/node": "7.0.8",
+    "@types/node-forge": "0.6.7",
+    "@types/openpgp": "0.0.28",
     "axe-logger": "~0.0.2",
     "chai": "~3.5.0",
     "concurrently": "3.4.0",
