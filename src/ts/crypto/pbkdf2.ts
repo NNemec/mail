@@ -4,6 +4,7 @@
 
 'use strict';
 
+/*
 import * as forge from "node-forge";
 
 // declare parts of node-forge that are missing in DT's .d.ts
@@ -18,7 +19,8 @@ declare module "node-forge" {
         function pbkdf2(password: string, salt: string, iter_count: number, dkLen: number, md: any): string;
     }
 };
-
+*/
+declare var forge: any;
 
 var pbkdf2: any = {};
 
