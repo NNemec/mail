@@ -1,8 +1,8 @@
 require('source-map-support').install();
 
 var _ = require('underscore');
-var jQuery = require('jquery');
-var $ = jQuery;
+var jQuery: JQueryStatic = require('jquery');
+var $: JQueryStatic = jQuery;
 require('angular');
 require('angular-route');
 require('angular-animate');

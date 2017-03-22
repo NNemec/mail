@@ -42,7 +42,7 @@ DeviceStorage.prototype.init = function(dbName) {
  */
 DeviceStorage.prototype.storeList = function(list, type) {
     var self = this;
-    return new Promise(function(resolve) {
+    return Promise.resolve().then(()=>{
         var key, items = [];
         list = list || [];
 
@@ -61,7 +61,7 @@ DeviceStorage.prototype.storeList = function(list, type) {
             });
         });
 
-        resolve(items);
+        return items;
 
     }).then(function(items) {
         // nothing to store

@@ -67,7 +67,7 @@ CryptoService.prototype.deriveKey = function(password, salt, keySize) {
 CryptoService.prototype.startWorker = function(options) {
     return new Promise(function(resolve, reject) {
         // check for WebWorker support
-        if (window.Worker) {
+        if (window['Worker']) {
             // init webworker thread
             var worker = new Worker(options.script);
             worker.onmessage = function(e) {

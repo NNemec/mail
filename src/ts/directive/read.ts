@@ -47,7 +47,7 @@ ngModule.directive('replySelection', function() {
 
 ngModule.directive('frameLoad', function($window) {
     return function(scope, elm) {
-        var iframe = elm[0];
+        var iframe = (elm[0] as HTMLIFrameElement);
 
         scope.$watch('state.read.open', function(open) {
             if (open) {
@@ -143,8 +143,8 @@ ngModule.directive('frameLoad', function($window) {
             // only scale html mails
             var mail = scope.state.mailList.selected;
             if (mail && mail.html && (w > parentWidth)) {
-                scale = parentWidth / w;
-                scale = 'scale(' + scale + ',' + scale + ')';
+                var s = parentWidth / w;
+                scale = 'scale(' + s + ',' + s + ')';
             }
 
             elm.css({

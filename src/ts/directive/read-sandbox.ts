@@ -1,5 +1,13 @@
 'use strict';
 
+import { DOMPurify } from "dompurify";
+
+interface Window {
+    readonly parentIFrame: {
+        sendMessage: any;
+    }
+}
+
 // add DOMPurify hook to sanitze attributes
 DOMPurify.addHook('afterSanitizeAttributes', function(node) {
     // open all links in a new window
@@ -127,7 +135,7 @@ function parseConversation(textBody) {
         return root;
     }
 
-    function Node(parent) {
+    function Node(parent?) {
         this.parent = parent;
         this.children = [];
     }

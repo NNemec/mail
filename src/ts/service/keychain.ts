@@ -246,7 +246,7 @@ Keychain.prototype.getUserKeyPair = function(userId) {
             savedPrivkey = priv;
 
         }).then(function() {
-            var keys = {};
+            var keys: any = {};
 
             if (savedPubkey && savedPubkey.publicKey) {
                 keys.publicKey = savedPubkey;

@@ -4,7 +4,7 @@
 
 'use strict';
 
-var pbkdf2 = {};
+var pbkdf2: any = {};
 
 /**
  * PBKDF2-HMAC-SHA256 key derivation with a random salt and 10000 iterations

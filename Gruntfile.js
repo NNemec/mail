@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         zipName = (version) ? version : 'DEV';
 
     var browserifyOpt = {
-        exclude: ['openpgp', 'node-forge', 'net', 'tls', 'crypto'], // node apis not required at build time
+        exclude: ['openpgp', 'node-forge', 'net', 'tls', 'crypto', 'purify'], // node apis not required at build time
         ignore: ['buffer'], // node apis to be stubbed for runtime
         browserifyOptions: {
             debug: true

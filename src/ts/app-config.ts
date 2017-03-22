@@ -1,6 +1,6 @@
 'use strict';
 
-var appCfg = {};
+var appCfg: any = {};
 
 var ngModule = angular.module('woAppConfig', []);
 ngModule.factory('appConfig', function() {

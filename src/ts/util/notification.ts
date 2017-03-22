@@ -8,7 +8,7 @@ function Notif(appConfig, axe) {
     this._appConfig = appConfig;
     this._axe = axe;
 
-    if (window.Notification) {
+    if (window['Notification']) {
         this.hasPermission = Notification.permission === "granted";
     }
 }
@@ -27,7 +27,7 @@ Notif.prototype.create = function(options) {
 
     options.onClick = options.onClick || function() {};
 
-    if (!window.Notification) {
+    if (!window['Notification']) {
         return;
     }
 

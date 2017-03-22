@@ -123,7 +123,7 @@ app.controller('StatusDisplayCtrl', require('./controller/app/status-display'));
 //
 
 // are we running in a cordova app or in a browser environment?
-if (window.cordova) {
+if (window['cordova']) {
     // wait for 'deviceready' event to make sure plugins are loaded
     axe.debug('Assuming Cordova environment...');
     document.addEventListener('deviceready', bootstrap, false);
@@ -140,6 +140,6 @@ function bootstrap() {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    var all_svg = document.querySelector("#all_svg").import.body.childNodes[0];
+    var all_svg = (document.querySelector("#all_svg") as HTMLLinkElement).import.body.childNodes[0];
     document.querySelector("#all_svg_template").appendChild(document.importNode(all_svg,true));
 });

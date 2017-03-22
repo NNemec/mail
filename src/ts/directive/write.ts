@@ -32,8 +32,8 @@ ngModule.directive('focusInputOnClick', function() {
 ngModule.directive('attachmentInput', function() {
     return function(scope, elm) {
         elm.on('change', function(e) {
-            for (var i = 0; i < e.target.files.length; i++) {
-                addAttachment(e.target.files.item(i));
+            for (var i = 0; i < (e.target as HTMLInputElement).files.length; i++) {
+                addAttachment((e.target as HTMLInputElement).files.item(i));
             }
         });
 
@@ -43,7 +43,7 @@ ngModule.directive('attachmentInput', function() {
                 scope.attachments.push({
                     filename: file.name,
                     mimeType: file.type,
-                    content: new Uint8Array(e.target.result)
+                    content: new Uint8Array(this.result)
                 });
                 scope.$digest();
             };

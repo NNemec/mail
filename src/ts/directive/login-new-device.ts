@@ -5,7 +5,7 @@ var ngModule = angular.module('woDirectives');
 ngModule.directive('fileReader', function() {
     return function(scope, elm) {
         elm.bind('change', function(e) {
-            var files = e.target.files,
+            var files = (e.target as HTMLInputElement).files,
                 reader = new FileReader();
 
             if (files.length === 0) {
@@ -13,7 +13,7 @@ ngModule.directive('fileReader', function() {
             }
 
             reader.onload = function(e) {
-                var rawKeys = e.target.result,
+                var rawKeys = this.result,
                     index = rawKeys.indexOf('-----BEGIN PGP PRIVATE KEY BLOCK-----'),
                     keyParts;
 

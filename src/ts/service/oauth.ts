@@ -22,7 +22,7 @@ OAuth.prototype.isSupported = function() {
  */
 OAuth.prototype.getOAuthToken = function(emailAddress) {
     return new Promise(function(resolve, reject) {
-        var idOptions = {
+        var idOptions: any = {
             interactive: true
         };
 

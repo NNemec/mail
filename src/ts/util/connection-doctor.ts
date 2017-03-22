@@ -24,13 +24,13 @@ function ConnectionDoctor(appConfig) {
 // Error codes
 //
 
-var OFFLINE = ConnectionDoctor.OFFLINE = 42;
-var TLS_WRONG_CERT = ConnectionDoctor.TLS_WRONG_CERT = 43;
-var HOST_UNREACHABLE = ConnectionDoctor.HOST_UNREACHABLE = 44;
-var HOST_TIMEOUT = ConnectionDoctor.HOST_TIMEOUT = 45;
-var AUTH_REJECTED = ConnectionDoctor.AUTH_REJECTED = 46;
-var NO_INBOX = ConnectionDoctor.NO_INBOX = 47;
-var GENERIC_ERROR = ConnectionDoctor.GENERIC_ERROR = 48;
+var OFFLINE = 42;
+var TLS_WRONG_CERT = 43;
+var HOST_UNREACHABLE = 44;
+var HOST_TIMEOUT = 45;
+var AUTH_REJECTED = 46;
+var NO_INBOX = 47;
+var GENERIC_ERROR = 48;
 
 //
 // Public API
@@ -282,10 +282,10 @@ ConnectionDoctor.prototype._checkSmtp = function() {
 // Helper Functions
 //
 
-function createError(code, message, underlyingError) {
+function createError(code, message, underlyingError?) {
     var error = new Error(message);
-    error.code = code;
-    error.underlyingError = underlyingError;
+    error['code'] = code;
+    error['underlyingError'] = underlyingError;
 
     return error;
 }

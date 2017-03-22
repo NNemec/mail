@@ -151,6 +151,6 @@ RestDAO.prototype._processRequest = function(options) {
 
 function createError(code, message) {
     var error = new Error(message);
-    error.code = code;
+    error['code'] = code;
     return error;
 }

@@ -1449,7 +1449,7 @@ Email.prototype._getBodyParts = function(options) {
                 return !(bodyPart.raw || bodyPart.content);
             }).length) {
             var error = new Error('Can not get the contents of this message. It has already been deleted!');
-            error.hide = true;
+            error['hide'] = true;
             throw error;
         }
 
@@ -1687,7 +1687,7 @@ Email.prototype._uploadToSent = function(options) {
 Email.prototype.checkOnline = function() {
     if (!this._account.online) {
         var err = new Error('Client is currently offline!');
-        err.code = 42;
+        err['code'] = 42;
         throw err;
     }
 };
@@ -1736,7 +1736,7 @@ Email.prototype.isOnline = function() {
  * - For the outbox, that's the total number of messages (countAllMessages === true),
  * - For every other folder, it's the number of unread messages (countAllMessages === falsy)
  */
-function updateUnreadCount(folder, countAllMessages) {
+function updateUnreadCount(folder, countAllMessages?) {
     folder.count = countAllMessages ? folder.messages.length : _.filter(folder.messages, function(msg) {
         return msg.unread;
     }).length;

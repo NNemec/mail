@@ -149,7 +149,7 @@ ngModule.directive('woFocusMe', function($timeout, $parse) {
         scope.$watch(model, function(value) {
             if (value === true) {
                 $timeout(function() {
-                    var el = element[0];
+                    var el = <HTMLInputElement>element[0];
                     el.focus();
                     // set cursor to start of textarea
                     if (el.type === 'textarea') {
@@ -229,7 +229,7 @@ ngModule.directive('woInputCode', function() {
     return {
         restrict: 'A',
         require: 'ngModel',
-        link: function(scope, elm, attrs, ngModelCtrl) {
+        link: function(scope, elm, attrs, ngModelCtrl: angular.INgModelController) {
             function format(val) {
                 var str = '';
 
