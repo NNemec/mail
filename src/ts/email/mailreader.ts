@@ -1,6 +1,6 @@
 'use strict';
 
-var mailreader = require('mailreader');
+var mailreader = require('wo-mailreader');
 
 var ngModule = angular.module('woEmail');
 ngModule.factory('mailreader', function(appConfig) {

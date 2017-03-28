@@ -1,6 +1,6 @@
 'use strict';
 
-var mailreader = require('mailreader'),
+var mailreader = require('wo-mailreader'),
     ImapClient = require('wo-imap-client'),
     PgpMailer = require('wo-pgpmailer'),
     PgpBuilder = require('pgpbuilder'),

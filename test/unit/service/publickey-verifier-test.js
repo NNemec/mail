@@ -1,6 +1,6 @@
 'use strict';
 
-var mailreader = require('mailreader'),
+var mailreader = require('wo-mailreader'),
     KeychainDAO = require('../../../src/js/service/keychain'),
     ImapClient = require('wo-imap-client'),
     PublickeyVerifier = require('../../../src/js/service/publickey-verifier'),

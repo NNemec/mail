@@ -22,15 +22,6 @@ module.exports = function(grunt) {
 
         // General
 
-        shell: {
-            options: {
-                stderr: false
-            },
-            target: {
-                command: 'dir=$(pwd) && cd node_modules/mailreader/ && npm install --production && cd $dir'
-            }
-        },
-
         clean: {
             dist: ['dist', 'build', 'src/css', 'release', 'test/lib', 'test/integration/src',
                    'src/js/*.min.js', 'src/js/*.min.js.map' ],
@@ -191,7 +182,7 @@ module.exports = function(grunt) {
             },
             mailreaderWorker: {
                 files: {
-                    'src/js/mailreader-parser-worker.min.js': ['node_modules/mailreader/src/mailreader-parser-worker-browserify.js']
+                    'src/js/mailreader-parser-worker.min.js': ['node_modules/wo-mailreader/src/mailreader-parser-worker-browserify.js']
                 },
                 options: browserifyOpt
             },
@@ -792,7 +783,7 @@ module.exports = function(grunt) {
     grunt.registerTask('dist-assets', ['svgmin', 'svgstore', 'copy:icons']);
     grunt.registerTask('dist-styleguide', ['sass:styleguide', 'autoprefixer:styleguide', 'csso:styleguide', 'assemble:styleguide']);
     // generate styleguide after manifest to forward version number to styleguide
-    grunt.registerTask('dist', ['clean:dist', 'shell', 'dist-css', 'dist-js', 'dist-assets', 'dist-copy', 'manifest', 'dist-styleguide']);
+    grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js', 'dist-assets', 'dist-copy', 'manifest', 'dist-styleguide']);
 
     grunt.registerTask('offline-cache', ['manifest', 'swPrecache:prod']);
 
