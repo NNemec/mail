@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         zipName = (version) ? version : 'DEV';
 
     var browserifyOpt = {
-        exclude: ['openpgp', 'node-forge', 'net', 'tls', 'crypto'], // node apis not required at build time
+        exclude: ['openpgp', 'node-forge', 'net', 'tls', 'crypto', 'purify'], // node apis not required at build time
         ignore: ['buffer'], // node apis to be stubbed for runtime
         browserifyOptions: {
             debug: true
@@ -275,6 +275,9 @@ module.exports = function(grunt) {
             app: {
                 files: {
                     'build/js/app.js.map': ['build/js/app.js'],
+                },
+                options: {
+                    root: "../.."
                 }
             },
             pbkdf2Worker: {
@@ -419,6 +422,13 @@ module.exports = function(grunt) {
                 options: {
                     sourceMapName: 'test/integration/index.js.map'
                 }
+            }
+        },
+
+        run: {
+            sorcery: {
+                cmd: 'sorcery',
+                args: [ '-i', 'dist/js/boot.js' ]
             }
         },
 
@@ -755,7 +765,7 @@ module.exports = function(grunt) {
 
     // Build tasks
     grunt.registerTask('dist-css', ['sass:dist', 'autoprefixer:dist', 'csso:dist']);
-    grunt.registerTask('dist-js', ['browserify', 'exorcise', 'ngtemplates', 'concat', 'uglify']);
+    grunt.registerTask('dist-js', ['browserify', 'exorcise', 'ngtemplates', 'concat', 'run:sorcery', 'uglify']);
     grunt.registerTask('dist-js-app', [
         'browserify:app',
         'browserify:pbkdf2Worker',
@@ -765,6 +775,7 @@ module.exports = function(grunt) {
         'concat:app',
         'concat:readSandbox',
         'concat:pbkdf2Worker',
+        'run:sorcery',
         'offline-cache'
     ]);
     grunt.registerTask('dist-js-unitTest', [
