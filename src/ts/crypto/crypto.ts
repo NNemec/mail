@@ -4,7 +4,7 @@ var ngModule = angular.module('woCrypto');
 ngModule.service('crypto', CryptoService);
 module.exports = CryptoService;
 
-var aes = require('crypto-lib').aes,
+var aes = require('wo-crypto-lib').aes,
     pbkdf2 = require('./pbkdf2'),
     config = require('../app-config').config,
     axe = require('axe-logger');

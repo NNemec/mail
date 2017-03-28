@@ -1,6 +1,6 @@
 'use strict';
 
-var util = require('crypto-lib').util;
+var util = require('wo-crypto-lib').util;
 
 var LoginPrivateKeyUploadCtrl = function($scope, $location, $routeParams, $q, auth, privateKey) {
     !$routeParams.dev && !auth.isInitialized() && $location.path('/'); // init app

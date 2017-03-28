@@ -2,7 +2,7 @@
 
 var Crypto = require('../../../src/js/crypto/crypto'),
     config = require('../../../src/js/app-config').config,
-    util = require('crypto-lib').util;
+    util = require('wo-crypto-lib').util;
 
 describe('Crypto unit tests', function() {
     this.timeout(20000);

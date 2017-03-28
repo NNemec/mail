@@ -4,7 +4,7 @@ var ngModule = angular.module('woEmail');
 ngModule.service('outbox', Outbox);
 module.exports = Outbox;
 
-var util = require('crypto-lib').util,
+var util = require('wo-crypto-lib').util,
     config = require('../app-config').config,
     outboxDb = 'email_OUTBOX';
 

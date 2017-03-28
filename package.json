@@ -38,6 +38,7 @@
     "underscore": "1.8.3",
     "wo-browsercrow": "git://github.com/NNemec/wo-browsercrow.git",
     "wo-browsersmtp": "git://github.com/NNemec/wo-browsersmtp.git",
+    "wo-crypto-lib": "git://github.com/NNemec/wo-crypto-lib.git",
     "wo-imap-client": "git://github.com/NNemec/wo-imap-client.git",
     "wo-mailreader": "git://github.com/NNemec/wo-mailreader.git",
     "wo-pgpmailer": "git://github.com/NNemec/wo-pgpmailer.git"
@@ -52,7 +53,6 @@
     "axe-logger": "~0.0.2",
     "chai": "~3.5.0",
     "concurrently": "3.4.0",
-    "crypto-lib": "~0.2.1",
     "dompurify": "~0.8.5",
     "electron": "1.6.1",
     "electron-reload": "1.1.0",

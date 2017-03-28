@@ -5,7 +5,7 @@ ngModule.service('privateKey', PrivateKey);
 module.exports = PrivateKey;
 
 var ImapClient = require('wo-imap-client');
-var util = require('crypto-lib').util;
+var util = require('wo-crypto-lib').util;
 
 var IMAP_KEYS_FOLDER = 'openpgp_keys';
 var MIME_TYPE = 'application/x.encrypted-pgp-key';

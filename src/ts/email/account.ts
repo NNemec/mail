@@ -4,7 +4,7 @@ var ngModule = angular.module('woEmail');
 ngModule.service('account', Account);
 module.exports = Account;
 
-var util = require('crypto-lib').util;
+var util = require('wo-crypto-lib').util;
 
 function Account(appConfig, auth, accountStore, email, outbox, keychain, updateHandler, dialog) {
     this._appConfig = appConfig;

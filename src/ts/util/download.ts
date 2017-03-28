@@ -4,7 +4,7 @@ var ngModule = angular.module('woUtil');
 ngModule.service('download', Download);
 module.exports = Download;
 
-var util = require('crypto-lib').util;
+var util = require('wo-crypto-lib').util;
 
 /**
  * A download helper to abstract platform specific behavior
